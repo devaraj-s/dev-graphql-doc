@@ -1,3 +1,4 @@
+theme: jekyll-theme-minimal
 plugins:
   - jekyll-relative-links
 relative_links:
@@ -6,4 +7,3 @@ relative_links:
 include:
   - docs/query.md
   - docs/object.md
-
