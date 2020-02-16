@@ -7,4 +7,4 @@ include:
   - query.md
   - object.md
 
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
