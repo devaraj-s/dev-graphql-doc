@@ -6,5 +6,8 @@ relative_links:
 include:
   - query.md
   - object.md
-
+  - scalar.md
+  - mutation.md
+  - enum.md
+  - interface.md
 theme: jekyll-theme-cayman
