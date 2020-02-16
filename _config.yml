@@ -6,3 +6,5 @@ relative_links:
 include:
   - query.md
   - object.md
+
+theme: jekyll-theme-minimal
