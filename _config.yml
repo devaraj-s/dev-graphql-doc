@@ -4,5 +4,5 @@ relative_links:
   enabled: true
   collections: true
 include:
-  - docs/query.md
-  - docs/object.md
+  - query.md
+  - object.md
