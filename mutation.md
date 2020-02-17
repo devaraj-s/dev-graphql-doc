@@ -1,6 +1,6 @@
 # PreferncesAPIMutation
 Graph based mutation to store an employee's preferences and create teams
-**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](doc/object#outputpreference)
+**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
 
 Add user preferences
 
@@ -8,7 +8,7 @@ Add user preferences
 | --------- | ------------------ | ---------------- |
 | `input` | [InputPreference](inputpreference) |  |
 
-**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](doc/object#teamoutput)
+**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
 
 Create Team
 
@@ -16,19 +16,87 @@ Create Team
 | --------- | ------------------ | ---------------- |
 | `input` | [TeamInput](teaminput) |  |
 
-**deleteTeam** (`_id`: [String](doc/scalar#string)) : [TeamOutput](doc/object#teamoutput)
+**deleteTeam** (`_id`: [String](scalar#string)) : [TeamOutput](object#teamoutput)
 
 Delete Team
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
-| `_id` | [String](doc/scalar#string) |  |
+| `_id` | [String](scalar#string) |  |
 
-**updateTeam** (`_id`: [String](doc/scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](doc/object#teamoutput)
+**updateTeam** (`_id`: [String](scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
 
 Update Team
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
-| `_id` | [String](doc/scalar#string) |  |
+| `_id` | [String](scalar#string) |  |
+| `fieldsToUpdate` | [TeamInput](teaminput) |  |
+# PreferncesAPIMutation
+Graph based mutation to store an employee's preferences and create teams
+**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
+
+Add user preferences
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `input` | [InputPreference](inputpreference) |  |
+
+**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
+
+Create Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `input` | [TeamInput](teaminput) |  |
+
+**deleteTeam** (`_id`: [String](scalar#string)) : [TeamOutput](object#teamoutput)
+
+Delete Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `_id` | [String](scalar#string) |  |
+
+**updateTeam** (`_id`: [String](scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
+
+Update Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `_id` | [String](scalar#string) |  |
+| `fieldsToUpdate` | [TeamInput](teaminput) |  |
+# PreferncesAPIMutation
+Graph based mutation to store an employee's preferences and create teams
+**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
+
+Add user preferences
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `input` | [InputPreference](inputpreference) |  |
+
+**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
+
+Create Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `input` | [TeamInput](teaminput) |  |
+
+**deleteTeam** (`_id`: [String](scalar#string)) : [TeamOutput](object#teamoutput)
+
+Delete Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `_id` | [String](scalar#string) |  |
+
+**updateTeam** (`_id`: [String](scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
+
+Update Team
+
+| Argument  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `_id` | [String](scalar#string) |  |
 | `fieldsToUpdate` | [TeamInput](teaminput) |  |
