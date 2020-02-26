@@ -11,4 +11,10 @@ include:
   - peopleapi/mutation.md
   - peopleapi/enum.md
   - peopleapi/interface.md
+  - locationapi/query.md
+  - locationapi/object.md
+  - locationapi/scalar.md
+  - locationapi/mutation.md
+  - locationapi/enum.md
+  - locationapi/interface.md
 theme: jekyll-theme-cayman
