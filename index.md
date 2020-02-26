@@ -1,2 +1,2 @@
-**PeopleAPI**(peopleapi#query)
-**LocationAPI**(locationapi#query)
+[PeopleAPI](peopleapi#query)
+[LocationAPI](locationapi#query)
