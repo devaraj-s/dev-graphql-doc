@@ -5,12 +5,12 @@ relative_links:
   collections: true
 include:
   - index.md
-  - peopleapi/query.md
-  - peopleapi/object.md
-  - peopleapi/scalar.md
-  - peopleapi/mutation.md
-  - peopleapi/enum.md
-  - peopleapi/interface.md
+  - query.md
+  - object.md
+  - scalar.md
+  - mutation.md
+  - enum.md
+  - interface.md
   - locationapi/query.md
   - locationapi/object.md
   - locationapi/scalar.md
