@@ -168,7 +168,7 @@ ResultFilterType
 | Field  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
 | `key` | [String](scalar#string) | FIlter Field Value  |
-| `doc_count` | [String](scalar#string) | Longitude of a geo location  |
+| `count` | [String](scalar#string) | Longitude of a geo location  |
 
 ## JobFunction
 Object representation for a Job Function
