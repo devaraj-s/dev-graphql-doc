@@ -1,5 +1,5 @@
 # PeopleAPI
-Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.
+Graph based API to get People or Employee information, including their relationships like line managers, reporting line & office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.
 
 
 **employees** (`ids`: [[String]](scalar#string), `dataSet`: [DataSet](enum#dataset)) : [[Employee]](object#employee)
