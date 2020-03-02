@@ -17,4 +17,10 @@ include:
   - locationapi/mutation.md
   - locationapi/enum.md
   - locationapi/interface.md
+  - eventsapi/query.md
+  - eventsapi/object.md
+  - eventsapi/scalar.md
+  - eventsapi/mutation.md
+  - eventsapi/enum.md
+  - eventsapi/interface.md
 theme: jekyll-theme-cayman
