@@ -1,68 +1,25 @@
-# PreferncesAPIMutation
-Graph based mutation to store an employee's preferences and create teams
-**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
+# LocationAPIMutation
+GraphQL mutation to update location
+**updateLocation** (`input`: [InputLocation](inputlocation)) : [Location](object#location)
 
-Add user preferences
-
-| Argument  | Type               | Description      |
-| --------- | ------------------ | ---------------- |
-| `input` | [InputPreference](inputpreference) |  |
-
-**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
-
-Create Team
+Update the location
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
-| `input` | [TeamInput](teaminput) |  |
+| `input` | [InputLocation](inputlocation) |  |
 
-**deleteTeam** (`_id`: [String](scalar#string)) : [TeamOutput](object#teamoutput)
+**addLocation** (`input`: [InputLocation](inputlocation)) : [Location](object#location)
 
-Delete Team
-
-| Argument  | Type               | Description      |
-| --------- | ------------------ | ---------------- |
-| `_id` | [String](scalar#string) |  |
-
-**updateTeam** (`_id`: [String](scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
-
-Update Team
+Add the location
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
-| `_id` | [String](scalar#string) |  |
-| `fieldsToUpdate` | [TeamInput](teaminput) |  |
-# PreferncesAPIMutation
-Graph based mutation to store an employee's preferences and create teams
-**preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
+| `input` | [InputLocation](inputlocation) |  |
 
-Add user preferences
+**markHotelPreferred** (`hotelId`: [String](scalar#string)) : [Hotel](object#hotel)
+
+Mark the hotel as preferred
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
-| `input` | [InputPreference](inputpreference) |  |
-
-**team** (`input`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
-
-Create Team
-
-| Argument  | Type               | Description      |
-| --------- | ------------------ | ---------------- |
-| `input` | [TeamInput](teaminput) |  |
-
-**deleteTeam** (`_id`: [String](scalar#string)) : [TeamOutput](object#teamoutput)
-
-Delete Team
-
-| Argument  | Type               | Description      |
-| --------- | ------------------ | ---------------- |
-| `_id` | [String](scalar#string) |  |
-
-**updateTeam** (`_id`: [String](scalar#string), `fieldsToUpdate`: [TeamInput](teaminput)) : [TeamOutput](object#teamoutput)
-
-Update Team
-
-| Argument  | Type               | Description      |
-| --------- | ------------------ | ---------------- |
-| `_id` | [String](scalar#string) |  |
-| `fieldsToUpdate` | [TeamInput](teaminput) |  |
+| `hotelId` | [String](scalar#string) |  |
