@@ -5,7 +5,6 @@ relative_links:
   collections: true
 title: false
 include:
-  - index.md
   - peopleapi/query.md
   - peopleapi/object.md
   - peopleapi/scalar.md
