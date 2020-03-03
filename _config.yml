@@ -1,10 +1,12 @@
 plugins:
   - jekyll-relative-links
+  - jekyll-last-modified-at
 relative_links:
   enabled: true
   collections: true
 title: false
 include:
+  - index.html
   - peopleapi/query.md
   - peopleapi/object.md
   - peopleapi/scalar.md
