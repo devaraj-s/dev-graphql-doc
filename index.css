@@ -10,7 +10,9 @@
     display: flex;
     align-items: center;
 }
-
+.page-header.banner.banner-content.banner-icon {
+ float:left;
+}
 .banner-content {
     display: flex;
     justify-content: space-evenly;
@@ -20,7 +22,6 @@
 }
 .banner-icon {
 flex:1;
-float: left;
 }
 .banner-icon, .banner-icon img {
     height: 100px;
