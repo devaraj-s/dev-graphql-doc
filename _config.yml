@@ -31,3 +31,5 @@ include:
   - peopleexapi/enum.md
   - peopleexapi/interface.md
 #theme: jekyll-theme-cayman
+
+theme: jekyll-theme-leap-day
