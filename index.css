@@ -20,6 +20,7 @@
 }
 .banner-icon {
 flex:1;
+float: left;
 }
 .banner-icon, .banner-icon img {
     height: 100px;
