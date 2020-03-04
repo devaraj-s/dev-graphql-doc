@@ -10,9 +10,7 @@
     display: flex;
     align-items: center;
 }
-.page-header.banner.banner-content.banner-icon {
- float:left;
-}
+
 .banner-content {
     display: flex;
     justify-content: space-evenly;
