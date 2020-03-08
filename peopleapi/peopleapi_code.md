@@ -1,3 +1,4 @@
+## Code
 ```javascript
 function fancyAlert(arg) {
   if(arg) {
