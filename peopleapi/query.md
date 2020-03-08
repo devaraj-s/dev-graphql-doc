@@ -1,5 +1,6 @@
 # PeopleAPI
-Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.*Code Sample* :[[Code]](peopleapi_code#Code)
+Graph based API to get People or Employee information, 
+ ```javascriptfunction fancyAlert(arg) {if(arg) {$.facebox({div:"#foo"})}}```NaN*Code Sample* :[[Code]](peopleapi_code#Code)
 **employees** (`ids`: [[String]](scalar#string), `dataSet`: [DataSet](enum#dataset)) : [[Employee]](object#employee)
 
 Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.
