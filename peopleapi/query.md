@@ -4,19 +4,6 @@ Graph based API to get People or Employee information, including their relations
 
 Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.   
 
-```graphql
-query{
-	peopleSearch(find:"suresh"){
-	totalCount
-		employees{ 
-			id
-			name
-			firstName
-		}
-	}
-}
-```  
-
   *Code Sample* :[[Code]](peopleapi_code#Code)  
 
 | Argument  | Type               | Description      |
