@@ -1,8 +1,10 @@
 # User wishes to find a person in the employee list  
 
-**Sample 1 Request: Find By First Name**  
-<details>  
-```
+**Sample 1**  
+<details> 
+<summary>Request: Find By First Name</summary>
+<p> 
+```graphql
 {
   searchFilter(find:"Vijay Malhan"){
     employees{
@@ -22,6 +24,7 @@
   }
 }
 ```
+</p>
 </details>  
 
 ## Sample 1 Response: Find By First Name
