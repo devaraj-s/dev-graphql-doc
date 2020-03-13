@@ -102,7 +102,7 @@
 }
 </code></pre>
 </details>  
-  <br />
+<br />
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -226,7 +226,7 @@
 }
 </code></pre>
 </details>  
-    
+<br />
 **Test case 2: Filter by First name and Last name using filterType : AND**  
   
 <details>
