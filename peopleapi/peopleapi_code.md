@@ -101,7 +101,7 @@
   }
 }
 </code></pre>
-</details>  
+</details> 
 <br />
 <details>
 <summary>Response</summary>
@@ -252,7 +252,7 @@
 }
 </code></pre>
 </details>  
-   
+<br/> 
 ## Use case 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
   
 **Test case 1: Search query to filter on First name on dataset BCG_REGULAR**  
@@ -358,7 +358,7 @@
 }
 </code></pre>
 </details>  
-   
+<br/> 
 **Test case 2: Search by firstname and dataset = BCG_IT**  
   
 <details>
@@ -538,7 +538,7 @@
 }
 </code></pre>
 </details>  
-   
+<br/> 
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -874,7 +874,7 @@ query {
 }
 </code></pre>
 </details>  
-   
+<br/> 
 ## Use case 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
   
 **Test case 1 : Filter by First Name and Group By job function**  
@@ -977,7 +977,7 @@ query {
 }
 </code></pre>
 </details>  
-   
+<br/> 
 **Test case 2: Aggregation along with Nested filter fields**  
    
 <details>
