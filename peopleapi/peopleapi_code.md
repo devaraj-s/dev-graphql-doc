@@ -49,7 +49,7 @@
 }
 </code></pre>  
 
-**Test case 2: Find By Job Function Name** 
+**Test case 2: Find By Job Function Name**  
 
 <details>
 <summary>Request</summary>
@@ -75,9 +75,9 @@
 </code></pre>
 </details>  
 
-## Use case 2: User wishes to search for a person in employee list by providing certain filter values 
+## Use case 2: User wishes to search for a person in employee list by providing certain filter values  
 
-**Test case 1: Multiple search filters used with find and filter Type:OR/NOT**
+**Test case 1: Multiple search filters used with find and filter Type:OR/NOT**  
 
 <details>
 <summary>Request</summary>
@@ -226,9 +226,9 @@
 }
 </code></pre>
 </details>  
+    
+**Test case 2: Filter by First name and Last name using filterType : AND**  
   
-**Test case 2: Filter by First name and Last name using filterType : AND**
-
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -252,11 +252,11 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
   
-## Use case 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL
-
-**Test case 1: Search query to filter on First name on dataset BCG_REGULAR**
-
+**Test case 1: Search query to filter on First name on dataset BCG_REGULAR**  
+  
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -280,7 +280,7 @@
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -358,9 +358,9 @@
 }
 </code></pre>
 </details>  
+   
+**Test case 2: Search by firstname and dataset = BCG_IT**  
   
-**Test case 2: Search by firstname and dataset = BCG_IT**
-
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -384,13 +384,13 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search  
+
+**Test case 1: Filter By First name using dataset and limit=10**  
   
-## Use case 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search
-
-**Test case 1: Filter By First name using dataset and limit=10**
-
 <details>
-<summary>Request</summmary>
+<summary>Request</summary>
 <pre><code>
 {
   searchFilter(filters:[{ field:"firstName=Vijay" filterType:AND}]  dataSet:BCG_REGULAR limit: 10 ){
@@ -412,7 +412,7 @@
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -510,11 +510,11 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 5:  "Sorting" :User wants to get the response in a sequential order  
   
-## Use case 5:  "Sorting" :User wants to get the response in a sequential order
-
-**Test case 1: Filter by First name and Sort By Last name - default Ascending sort**
-
+**Test case 1: Filter by First name and Sort By Last name - default Ascending sort**  
+  
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -538,7 +538,7 @@
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -577,9 +577,9 @@
 }
 </code></pre>
 </details>  
-  
-**Test case 2: Sort By First name in ascending order**  
-
+   
+**Test case 2: Sort By First name in ascending order**   
+   
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -603,8 +603,8 @@
 }
 </pre></code>
 </details>  
-  
-**Test case 3: Multiple Sort By First name and Last name in ascending order**
+   
+**Test case 3: Multiple Sort By First name and Last name in ascending order**  
 
 <details>
 <summary>Request</summary>
@@ -629,7 +629,7 @@
 }
 </code><pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -676,11 +676,11 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.  
+   
+**Test case 1: First name and Last name both have spelling mistakes**   
   
-## Use case 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.
-
-**Test case 1: First name and Last name both have spelling mistakes**
-
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -703,7 +703,7 @@
  }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -729,11 +729,11 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.  
 
-## Use case 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.
-
-**Test case 1: Type Ahead Search with Location Filter and DataSet**
-  
+**Test case 1: Type Ahead Search with Location Filter and DataSet**  
+   
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -756,7 +756,7 @@
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -794,10 +794,10 @@
 }
 </code></pre>
 </details>  
+   
+## Use case 8: Search with Single Character  
   
-## Use case 8: Search with Single Character
-  
-**Test case 1: Filter by Last Name with single char**
+**Test case 1: Filter by Last Name with single char**  
   
 <details>
 <summary>Request</summary>
@@ -814,7 +814,7 @@ query {
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -874,8 +874,8 @@ query {
 }
 </code></pre>
 </details>  
-  
-## Use case 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.  
+   
+## Use case 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
   
 **Test case 1 : Filter by First Name and Group By job function**  
   
@@ -977,9 +977,9 @@ query {
 }
 </code></pre>
 </details>  
-  
-**Test case 2: Aggregation along with Nested filter fields** 
-  
+   
+**Test case 2: Aggregation along with Nested filter fields**  
+   
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -1005,7 +1005,7 @@ query {
 }
 </code></pre>
 </details>  
-  
+   
 <details>
 <summary>Response</summary>
 <pre><code>
