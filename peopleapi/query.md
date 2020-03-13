@@ -2,11 +2,16 @@
 Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.
 **employees** (`ids`: [[String]](scalar#string), `dataSet`: [DataSet](enum#dataset)) : [[Employee]](object#employee)
 
-Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.  
+Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.    
 
-*Code Sample* :[[Code]](peopleapi_code#Code) 
+ *Code Sample* :[[Code]](peopleapi_code#Code) 
 
+*People Profile Query*
   <iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="400" width="1200" border="0" frameborder="0"></iframe> 
+
+
+*People API Response time*
+  <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>  
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
