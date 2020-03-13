@@ -1,10 +1,9 @@
 # User wishes to find a person in the employee list  
 
-**Sample 1**  
-<details> 
+**Use case: 1**  
+
 <summary>Request: Find By First Name</summary>
-<p> 
-```graphql
+<pre><code>
 {
   searchFilter(find:"Vijay Malhan"){
     employees{
@@ -23,8 +22,33 @@
     totalCount
   }
 }
-```
-</p>
+</code></pre>
+</details>  
+
+<summary>Response: Find By First Name</summary>
+<pre><code>
+{
+    "data": {
+        "searchFilter": {
+            "employees": [
+                {
+                    "id": "367929",
+                    "name": "Malhan, Vijay",
+                    "hostOfficeId": "GSL",
+                    "firstName": "Vijay",
+                    "lastName": "Malhan",
+                    "homeOfficeId": "GSL",
+                    "status": "Regular-Active",
+                    "globalTitle": "Senior Manager",
+                    "jobFunction": "Information Technology",
+                    "title": "IT Mobile Applications Senior Lead Architect"
+                }
+            ],
+            "totalCount": 1
+        }
+    }
+}
+</code></pre>
 </details>  
 
 ## Sample 1 Response: Find By First Name
@@ -949,16 +973,3 @@ query {
     }
 }
 ``` 
-
-# A collapsible section with markdown
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>  
-
-<iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="400" width="1200" border="0" frameborder="0"></iframe>
