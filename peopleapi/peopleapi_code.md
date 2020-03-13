@@ -102,7 +102,7 @@
 }
 </code></pre>
 </details>  
-  
+  <br />
 <details>
 <summary>Response</summary>
 <pre><code>
