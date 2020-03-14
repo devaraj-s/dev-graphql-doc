@@ -1,5 +1,5 @@
 # PeopleAPI
-Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br/>CodeSample: [[Code]](peopleapi_code#Code) <br/>
+Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br />**CodeSample:** [[Code]](peopleapi_code#Code) <br />
 **employees** (`ids`: [[String]](scalar#string), `dataSet`: [DataSet](enum#dataset)) : [[Employee]](object#employee)
 
 Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.
@@ -116,10 +116,10 @@ Returns list of all the teams
 
 Returns list of all groups of an employee
 
-**PeopleAPIProfileQuery**  : [String!](scalar#string)
+**PeopleAPIProfileQuery**  : [[String]](scalar#string)
 
-<iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="400" width="600" border="0" frameborder="0"></iframe> 
+<iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="400" width="800" border="0" frameborder="0"></iframe><br />
 
-**PeopleAPIResponseTime**  : [String!](scalar#string)
+**PeopleAPIResponseTime**  : [[String]](scalar#string)
 
 <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>
