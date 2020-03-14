@@ -253,6 +253,7 @@
 </code></pre>
 </details>  
 <br/> 
+
 ## Use case 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
   
 **Test case 1: Search query to filter on First name on dataset BCG_REGULAR**  
@@ -359,6 +360,7 @@
 </code></pre>
 </details>  
 <br/> 
+
 **Test case 2: Search by firstname and dataset = BCG_IT**  
   
 <details>
@@ -385,6 +387,7 @@
 </code></pre>
 </details>  
 <br/>
+
 ## Use case 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search  
 
 **Test case 1: Filter By First name using dataset and limit=10**  
@@ -511,6 +514,7 @@
 </code></pre>
 </details>  
 <br/>  
+
 ## Use case 5:  "Sorting" :User wants to get the response in a sequential order  
   
 **Test case 1: Filter by First name and Sort By Last name - default Ascending sort**  
@@ -603,7 +607,7 @@
     totalCount
   }
 }
-</pre></code>
+</code></pre>
 </details>  
 <br/>   
 
@@ -632,7 +636,8 @@
 }
 </code><pre>
 </details>  
-<br/> 
+<br/>
+
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -680,6 +685,7 @@
 </code></pre>
 </details>  
 <br/>
+
 ## Use case 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.  
    
 **Test case 1: First name and Last name both have spelling mistakes**   
@@ -707,6 +713,7 @@
 </code></pre>
 </details>  
 <br/>
+
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -733,6 +740,7 @@
 </code></pre>
 </details>  
 <br/>
+
 ## Use case 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.  
 
 **Test case 1: Type Ahead Search with Location Filter and DataSet**  
@@ -759,7 +767,8 @@
 }
 </code></pre>
 </details>  
-<br/>  
+<br/>
+
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -797,7 +806,8 @@
 }
 </code></pre>
 </details>  
-<br/>  
+<br/>
+
 ## Use case 8: Search with Single Character  
   
 **Test case 1: Filter by Last Name with single char**  
@@ -817,7 +827,8 @@ query {
 }
 </code></pre>
 </details>  
-<br/>  
+<br/> 
+
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -878,6 +889,7 @@ query {
 </code></pre>
 </details>  
 <br/> 
+
 ## Use case 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
   
 **Test case 1 : Filter by First Name and Group By job function**  
@@ -905,7 +917,8 @@ query {
 }
 </code></pre>
 </details>  
-<br/> 
+<br/>
+
 <details>
 <summary>Response</summary>
 <pre><code>
