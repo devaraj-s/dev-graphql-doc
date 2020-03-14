@@ -1,7 +1,7 @@
 # Objects
 
 ## PeopleExternalAPI
-Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.
+Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br />
 
 | Field  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
@@ -11,7 +11,8 @@ Graph based API to get External People information. You can use an Employee quer
 | `searchFilter` | [Employees](object#employees) | Lookup location by name, title or any other information you know. Returns the matching location objects as an array.  |
 | `jobFunctions` | [[JobFunction]](object#jobfunction) | Returns list of all distinct job functions  |
 | `practiceAreas` | [[PracticeArea]](object#practicearea) | Returns list of all practice area objects  |
-| `advancedFilters` | [AdvancedFilters](object#advancedfilters) | Returns list of available advanced filters  |
+| `advancedFilters` | [AdvancedFilters](object#advancedfilters) | Returns list of available advanced filters <br />  |
+| `PeopleExternalAPIResponseTime_Oneweektimelinedata` | [[String]](scalar#string) |  <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>  <iframe src="https://app.datadoghq.com/graph/embed?token=19eddccfe40710a321df48d79919617bdf4d81efbf18402e2d1ac79e9421e009&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>  |
 
 ## Employee
 Employee Type - the main data structure used by the People API graph. In a logical People graph, each node is an instance of this type.

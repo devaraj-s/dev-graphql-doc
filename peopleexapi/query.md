@@ -1,5 +1,5 @@
 # PeopleExternalAPI
-Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.
+Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br />
 **employees** (`ids`: [[String]](scalar#string), `sector`: [String](scalar#string)) : [[Employee]](object#employee)
 
 Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.
@@ -67,8 +67,12 @@ Returns list of all practice area objects
 
 **advancedFilters** (`sector`: [String](scalar#string)) : [AdvancedFilters](object#advancedfilters)
 
-Returns list of available advanced filters
+Returns list of available advanced filters <br />
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
 | `sector` | [String](scalar#string) | Sector of experts for e.g MPI or TL |
+
+**PeopleExternalAPIResponseTime_Oneweektimelinedata**  : [[String]](scalar#string)
+
+ <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>  <iframe src="https://app.datadoghq.com/graph/embed?token=19eddccfe40710a321df48d79919617bdf4d81efbf18402e2d1ac79e9421e009&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>
