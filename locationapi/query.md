@@ -60,13 +60,13 @@ Lookup for airports in given location. Returns airports in the location in a arr
 
 **searchByAddress** (`text`: [String](scalar#string)) : [[Location]](object#location)
 
-Search for the given text and return collection of location data using  third party api.This locations are not available in location master
+Search for the given text and return collection of location data using  third party api.This locations are not available in location master <br />
 
 | Argument  | Type               | Description      |
 | --------- | ------------------ | ---------------- |
 | `text` | [String](scalar#string) |  |
 
-**LocationAPIProfileQuery_Realtimecustomreport**  : [[String]](scalar#string)
+**LocationAPICustomOfficesQuery_Realtimecustomreport**  : [[String]](scalar#string)
 
  <iframe src="https://www.site24x7.eu/public/dashboard/I6RSF5T1vs2VmjfvcW_EdbuuY2099IWqSJzovxoDudGlBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGONE9Ue6GjDDiVh8LVWTUuavrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>  <br />
 

@@ -12,8 +12,8 @@ Graph based API to get Location or Location.  <br />
 | `locations` | [[Location]](object#location) | Returns all location which exists sorted in ascending order by officeCode  |
 | `hotels` | [[Hotel]](object#hotel) | Lookup for hotels in given location. Returns hotel in the location in a array  |
 | `airports` | [[Airport]](object#airport) | Lookup for airports in given location. Returns airports in the location in a array  |
-| `searchByAddress` | [[Location]](object#location) | Search for the given text and return collection of location data using  third party api.This locations are not available in location master  |
-| `LocationAPIProfileQuery_Realtimecustomreport` | [[String]](scalar#string) |  <iframe src="https://www.site24x7.eu/public/dashboard/I6RSF5T1vs2VmjfvcW_EdbuuY2099IWqSJzovxoDudGlBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGONE9Ue6GjDDiVh8LVWTUuavrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>  <br />  |
+| `searchByAddress` | [[Location]](object#location) | Search for the given text and return collection of location data using  third party api.This locations are not available in location master <br />  |
+| `LocationAPICustomOfficesQuery_Realtimecustomreport` | [[String]](scalar#string) |  <iframe src="https://www.site24x7.eu/public/dashboard/I6RSF5T1vs2VmjfvcW_EdbuuY2099IWqSJzovxoDudGlBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGONE9Ue6GjDDiVh8LVWTUuavrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>  <br />  |
 | `LocationAPIResponseTime_Oneweektimelinedata` | [[String]](scalar#string) | <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>   |
 
 ## Location
