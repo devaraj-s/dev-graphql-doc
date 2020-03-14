@@ -579,6 +579,7 @@
 </code></pre>
 </details>  
 <br/>
+
 **Test case 2: Sort By First name in ascending order**   
    
 <details>
@@ -605,6 +606,7 @@
 </pre></code>
 </details>  
 <br/>   
+
 **Test case 3: Multiple Sort By First name and Last name in ascending order**  
 
 <details>
