@@ -24,20 +24,30 @@
     <!--<a id="skip-to-content" href="#content">Skip to the content.</a>-->
 
     <header class="page-header" role="banner">
-      <div class="banner-text">
-        <h1>BCG Developer Documentation</h1>
-        <p>Browse the latest developer documentation including 
-             API reference, articles, and sample code.</p>
+      <div class="banner">
+        <div class="banner-content">
+            <div class="banner-icon">
+                <img src="DevBanner_icon.png" />
+            </div>
+            <div class="banner-text">
+                <h1>BCG Developer Documentation</h1>
+                <p>Browse the latest developer documentation including 
+                     API reference, articles, and sample code.</p>
+            </div>
+            <div class="banner-btn" style="visibility: hidden;">
+                <a>View On Github</a>
+            </div>
+        </div>
     </div>
 <!--
                 <h1>BCG Developer Documentation</h1>
                 <p>Browse the latest developer documentation including 
-                     API reference, articles, and sample code.</p>-->
-        <a href="../index.html" class="btn">Home</a>
+                     API reference, articles, and sample code.</p>
+        
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-      {% endif %}
+      {% endif %}-->
     </header>
 
     <main id="content" class="main-content" role="main">
