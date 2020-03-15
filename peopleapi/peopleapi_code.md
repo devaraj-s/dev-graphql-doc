@@ -1,4 +1,4 @@
-## Use case 1: User wishes to find a person in the employee list  
+## Scenario 1: User wishes to find a person in the employee list  
 
 **Test case 1: Find By First Name**  
 
@@ -75,7 +75,7 @@
 </code></pre>
 </details>  
 
-## Use case 2: User wishes to search for a person in employee list by providing certain filter values  
+## Scenario 2: User wishes to search for a person in employee list by providing certain filter values  
 
 **Test case 1: Multiple search filters used with find and filter Type:OR/NOT**  
 
@@ -254,7 +254,7 @@
 </details>  
 <br/> 
 
-## Use case 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
+## Scenario 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
   
 **Test case 1: Search query to filter on First name on dataset BCG_REGULAR**  
   
@@ -388,7 +388,7 @@
 </details>  
 <br/>
 
-## Use case 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search  
+## Scenario 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search  
 
 **Test case 1: Filter By First name using dataset and limit=10**  
   
@@ -515,7 +515,7 @@
 </details>  
 <br/>  
 
-## Use case 5:  "Sorting" :User wants to get the response in a sequential order  
+## Scenario 5:  "Sorting" :User wants to get the response in a sequential order  
   
 **Test case 1: Filter by First name and Sort By Last name - default Ascending sort**  
   
@@ -686,7 +686,7 @@
 </details>  
 <br/>
 
-## Use case 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.  
+## Scenario 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.  
    
 **Test case 1: First name and Last name both have spelling mistakes**   
   
@@ -741,7 +741,7 @@
 </details>  
 <br/>
 
-## Use case 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.  
+## Scenario 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.  
 
 **Test case 1: Type Ahead Search with Location Filter and DataSet**  
    
@@ -808,7 +808,7 @@
 </details>  
 <br/>
 
-## Use case 8: Search with Single Character  
+## Scenario 8: Search with Single Character  
   
 **Test case 1: Filter by Last Name with single char**  
   
@@ -890,7 +890,7 @@ query {
 </details>  
 <br/> 
 
-## Use case 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
+## Scenario 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
   
 **Test case 1 : Filter by First Name and Group By job function**  
   
