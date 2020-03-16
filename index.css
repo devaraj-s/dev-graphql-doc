@@ -154,3 +154,7 @@ font-size: 12px;
     line-height: 1.5;
     color: #606c71;
 }
+
+.main-content {
+ font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
