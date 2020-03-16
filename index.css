@@ -29,10 +29,14 @@ flex:1;
     width: 720px;
 }
 .banner-text h1 {
+    margin:0;
     font-size: 2.25rem;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+.banner-text p {
+    margin: 0;
+     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .banner-btn {
     flex:2;
     text-align: right;
