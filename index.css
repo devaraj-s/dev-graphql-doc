@@ -27,6 +27,7 @@ flex:1;
 .banner-text {
     color: white;
     width: 720px;
+    line-height: 1.2;
 }
 .banner-text h1 {
     margin:0;
