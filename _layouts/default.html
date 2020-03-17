@@ -95,19 +95,24 @@
     //document.getElementById("dynamicLink").innerHTML = window.location.href;
   
      var x = window.location.href;
+     alert(x);
      if (x.contains("eventsapi")) {
+       alert(1);
       document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/query.html";
       document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/code.html";
       document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/performance.html";
     } else if (x.contains("locationapi")) {
+      alert(2);
       document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/query.html";
       document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/code.html";
       document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/performance.html";
     } else if (x.contains("peopleexapi")) {
+      alert(3);
       document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/query.html";
       document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/code.html";
       document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/performance.html";
     } else {
+      alert(4);
       document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html";
       document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/code.html";
       document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/performance.html";
