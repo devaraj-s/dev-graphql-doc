@@ -58,14 +58,10 @@
 </head>
 
 <body>
-  <p>====</p>
-  <p id="demo"></p>
-
+ 
 <script>
-document.getElementById("demo").innerHTML = 
-"The full URL of this page is:<br>" + window.location.href;
-var x = document.getElementById("myAnchor");
-alert(x);
+document.getElementById("descriptionLink").innerHTML =  window.location.href;
+//document.getElementById("dynamicLink").href.replace("userName", "test1");
 </script>
   <!-- 
     <header class="page-header" role="banner">
@@ -102,7 +98,7 @@ alert(x);
   if
   <div class="sidenav">
   <a href="https://devaraj-s.github.io/dev-graphql-doc/index.html">Home</a>
-  <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html">Description</a>
+  <a id="descriptionLink" href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html">Description</a>
   <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_code.html">Code</a>
   <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_performance.html">Performance</a>
 </div>
