@@ -58,7 +58,13 @@
 </head>
 
 <body>
-
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myAnchor").href;
+      document.getElementById("demo").innerHTML = x;
+      alert(x);
+    }
+    </script>
   <!-- 
     <header class="page-header" role="banner">
       <div class="banner">
@@ -91,11 +97,12 @@
 
     </div>
   </div>
+  <p id="demo"></p>
 <div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+  <a href="#about">Home</a>
+  <a href="#services">Description</a>
+  <a href="#clients">Code Samples</a>
+  <a href="#contact">Performance</a>
 </div>
 
   <main id="content" class="main-content" role="main">
