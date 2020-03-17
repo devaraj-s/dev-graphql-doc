@@ -58,10 +58,15 @@
 </head>
 
 <body>
-  <script>
-    document.getElementById("demo").innerHTML =
-    "Page path is: " + window.location.pathname;
-    </script>
+  <p>====</p>
+  <p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+var x = document.getElementById("myAnchor");
+alert(x);
+</script>
   <!-- 
     <header class="page-header" role="banner">
       <div class="banner">
@@ -94,6 +99,7 @@
 
     </div>
   </div>
+  if
   <div class="sidenav">
   <a href="https://devaraj-s.github.io/dev-graphql-doc/index.html">Home</a>
   <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html">Description</a>
