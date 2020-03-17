@@ -58,13 +58,6 @@
 </head>
 
 <body>
- 
-<script>
-document.getElementById("dynamicLink").innerHTML = 
- window.location.href;
-
-//document.getElementById("dynamicLink").href.replace("userName", "test1");
-</script>
   <!-- 
     <header class="page-header" role="banner">
       <div class="banner">
@@ -98,11 +91,36 @@ document.getElementById("dynamicLink").innerHTML =
     </div>
   </div>
 
+  <script>
+    //document.getElementById("dynamicLink").innerHTML = window.location.href;
+  
+     var x = window.location.href;
+     if (x.contains("eventsapi")) {
+      document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/query.html";
+      document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/code.html";
+      document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/eventsapi/performance.html";
+    } else if (x.contains("locationapi")) {
+      document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/query.html";
+      document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/code.html";
+      document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/locationapi/performance.html";
+    } else if (x.contains("peopleexapi")) {
+      document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/query.html";
+      document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/code.html";
+      document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/performance.html";
+    } else {
+      document.getElementById("descriptionLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html";
+      document.getElementById("codeLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/code.html";
+      document.getElementById("dashboardLink").innerHTML = "http://https://devaraj-s.github.io/dev-graphql-doc/peopleapi/performance.html";
+    }
+    
+    //document.getElementById("dynamicLink").href.replace("userName", "test1");
+    </script>
+  
   <div class="sidenav">
   <a href="https://devaraj-s.github.io/dev-graphql-doc/index.html">Home</a>
-  <a id="dynamicLink" href="{{demo}}">Description</a>
-  <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_code.html">Code</a>
-  <a href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_performance.html">Performance</a>
+  <a id="descriptionLink" href="{{descriptionLink}}">Description</a>
+  <a id="codeLink" href="{{codeLink}}" href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_code.html">Code</a>
+  <a id="dashboardLink" href="{{dashboardLink}}"href="https://devaraj-s.github.io/dev-graphql-doc/peopleapi/peopleapi_performance.html">Performance</a>
 </div>
 
   <main id="content" class="main-content" role="main">
