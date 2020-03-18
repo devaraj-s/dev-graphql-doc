@@ -18,8 +18,10 @@ Graph based API to get People or Employee information, including their relations
 | `teams` | [[TeamOutput]](object#teamoutput) | Returns list of all the teams for an employee  |
 | `allTeams` | [[TeamOutput]](object#teamoutput) | Returns list of all the teams  |
 | `entitlements` | [[String]](scalar#string) | Returns list of all groups of an employee  |
-| `PeopleAPIProfileQuery` | [[String]](scalar#string) | Realtime custom report for PeopleAPI <br /><iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="400" width="800" border="0" frameborder="0"></iframe><br />  |
-| `PeopleAPIResponseTime` | [[String]](scalar#string) | PeopleAPI LIVE dashboard depicting 1 week timeline data <br /><iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>  |
+| `topicCategories` | [[Topic]](object#topic) | List of all topic role categories  |
+| `topicGroups` | [[RoleGroup]](object#rolegroup) | List all topic role groups  |
+| `PeopleAPIProfileQuery_Realtimecustomreport` | [[String]](scalar#string) | <iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>  <br />  |
+| `PeopleAPIResponseTime_Oneweektimelinedata` | [[String]](scalar#string) | <iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>   |
 
 ## Employee
 Employee Type - the main data structure used by the People API graph. In a logical People graph, each node is an instance of this type.
@@ -212,6 +214,49 @@ Team data
 | `imageName` | [String](scalar#string) | Image for the team  |
 | `employeeIds` | [[String]](scalar#string) | Employee Ids of team members  |
 | `contentLinks` | [[ContentType]](object#contenttype) | Contents links for team  |
+
+## Topic
+
+
+| Field  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `id` | [ID](scalar#id) | topic id  |
+| `name` | [String](scalar#string) | name of topic  |
+| `sortOrder` | [String](scalar#string) | sorting preference for UI  |
+| `roleCategories` | [[RoleCategory]](object#rolecategory) | categories of role  |
+
+## RoleCategory
+
+
+| Field  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `id` | [ID](scalar#id) | Role category id  |
+| `name` | [String](scalar#string) | Name of Role category  |
+| `groups` | [[RoleGroup]](object#rolegroup) | Goups of Role  |
+| `sortOrder` | [Int](scalar#int) | sorting preference for UI  |
+
+## RoleGroup
+
+
+| Field  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `id` | [ID](scalar#id) | Role group id  |
+| `name` | [String](scalar#string) | Name of role group  |
+| `sortOrder` | [Int](scalar#int) | sorting preference for UI  |
+| `roles` | [[TopicRole]](object#topicrole) | List of roles in current group  |
+
+## TopicRole
+
+
+| Field  | Type               | Description      |
+| --------- | ------------------ | ---------------- |
+| `id` | [ID](scalar#id) | Role id  |
+| `name` | [String](scalar#string) | Name of role  |
+| `description` | [String](scalar#string) | Description of the role  |
+| `displayText` | [String](scalar#string) | Display text for the role  |
+| `detailDisplayText` | [String](scalar#string) | Detailed description of role  |
+| `contact` | [Employee](object#employee) | Employee details  |
+| `sortOrder` | [Int](scalar#int) | sorting preference for UI  |
 
 ## PreferncesAPIMutation
 Graph based mutation to store an employee's preferences and create teams

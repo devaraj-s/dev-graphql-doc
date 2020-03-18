@@ -22,3 +22,11 @@ Filter type can be either OR or AND, used with filters argument. Default is OR
 | `OR` |  | No |  |
 | `AND` |  | No |  |
 | `NOT` |  | No |  |
+
+## SortOrder
+Order in which sorting is required
+
+| Value  | Description               | Deprecated      | Reason |
+| --------- | ------------------ | ---------------- | ---------- |
+| `ASC` | ascending order | No |  |
+| `DESC` | descending order | No |  |
