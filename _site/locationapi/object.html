@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: fixed;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+      
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        (document.location.href = redirectTo), true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Unified API's Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink"
+       href="javascript:;"
+       data-ref="query"
+       onClick="sideNavClick(this)"
+       >Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this)"
+        >Code</a
+      >
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="objects">Objects</h1>
+
+<h2 id="locationapi">LocationAPI</h2>
+<p>Graph based API to get Location or Location.  <br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td><a href="object#location">Location</a></td>
+      <td>Navigate location graph via this query, you will use this if you have access to location code otherwise use search query. Returns an Location object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">locationbyIds</code></td>
+      <td><a href="object#location">[Location]</a></td>
+      <td>Navigate location graph via this query, you will use this if you have access to location code otherwise use search query. Returns an collection Location object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">search</code></td>
+      <td><a href="object#location">[Location]</a></td>
+      <td>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">searchfilter</code></td>
+      <td><a href="object#location">[Location]</a></td>
+      <td>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">locations</code></td>
+      <td><a href="object#location">[Location]</a></td>
+      <td>Returns all location which exists sorted in ascending order by officeCode</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hotels</code></td>
+      <td><a href="object#hotel">[Hotel]</a></td>
+      <td>Lookup for hotels in given location. Returns hotel in the location in a array</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">airports</code></td>
+      <td><a href="object#airport">[Airport]</a></td>
+      <td>Lookup for airports in given location. Returns airports in the location in a array</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">searchByAddress</code></td>
+      <td><a href="object#location">[Location]</a></td>
+      <td>Search for the given text and return collection of location data using  third party api.This locations are not available in location master <br /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">LocationAPICustomOfficesQuery_Realtimecustomreport</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://www.site24x7.eu/public/dashboard/I6RSF5T1vs2VmjfvcW_EdbuuY2099IWqSJzovxoDudGlBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGONE9Ue6GjDDiVh8LVWTUuavrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"&gt;&lt;/iframe&gt;  <br /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">LocationAPIResponseTime_Oneweektimelinedata</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"&gt;&lt;/iframe&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="location">Location</h2>
+<p>Location Type - object for the office location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique office code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Office name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">regionId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique region id of the office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street2</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street3</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>City of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>State of Office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zipCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Zip-code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">countryCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geoLocation</code></td>
+      <td><a href="object#geolocation">GeoLocation</a></td>
+      <td>Geolocation has latitude and longitude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Phone number of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to an office image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents inside the office location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Time zone of the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">weather</code></td>
+      <td><a href="object#weather">Weather</a></td>
+      <td>current weather for the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">locationType</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Location type</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="geolocation">GeoLocation</h2>
+<p>GeoLocation Type - object for latitude and longitude</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">lat</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Latitude of a geo location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Longitude of a geo location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contenttype">ContentType</h2>
+<p>Object representation for the ContentLink</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">link</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">image</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Icon name for the content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weather">Weather</h2>
+<p>Weather Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather icon to be used</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather description of the description</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">temperature</code></td>
+      <td><a href="object#weatherunit">[WeatherUnit]</a></td>
+      <td>Temperature in both celcius and farenheit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weatherunit">WeatherUnit</h2>
+<p>Weather Unit Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unit Type- Celcius or Farenheit</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td><a href="scalar#float">Float</a></td>
+      <td>Current temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="hotel">Hotel</h2>
+<p>Hotel Type - object for the Hotel location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique Hotel code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Hotel name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where Hotel is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>City of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>State of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zipCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Zip-code of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">address</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country code of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geoLocation</code></td>
+      <td><a href="object#geolocation">GeoLocation</a></td>
+      <td>Geolocation has latitude and longitude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Phone number of Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to an Hotel image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents inside the Hotel location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ratings</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>User ratings for the Hotel</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">distance</code></td>
+      <td><a href="scalar#float">Float</a></td>
+      <td>Distance from the office location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preferred</code></td>
+      <td><a href="scalar#boolean">Boolean</a></td>
+      <td>BCG Preferred hotel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="airport">Airport</h2>
+<p>Airport Type - object for the airport location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique airport code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Airport name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where airport is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>City of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>State of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zipCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Zip-code of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">address</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country code of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geoLocation</code></td>
+      <td><a href="object#geolocation">GeoLocation</a></td>
+      <td>Geolocation has latitude and longitude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Phone number of airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to an airport image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents inside the airport location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ratings</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>User ratings for the airport</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">distance</code></td>
+      <td><a href="scalar#float">Float</a></td>
+      <td>Distance from the office location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="locationapimutation">LocationAPIMutation</h2>
+<p>GraphQL mutation to update location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">updateLocation</code></td>
+      <td><a href="object#location">Location</a></td>
+      <td>Update the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">addLocation</code></td>
+      <td><a href="object#location">Location</a></td>
+      <td>Add the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">markHotelPreferred</code></td>
+      <td><a href="object#hotel">Hotel</a></td>
+      <td>Mark the hotel as preferred</td>
+    </tr>
+  </tbody>
+</table>
+
+    </main>
+  </body>
+</html>

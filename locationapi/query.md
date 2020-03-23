@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # LocationAPI
 Graph based API to get Location or Location.  <br />
 **location** (`id`: [String](scalar#string)) : [Location](object#location)

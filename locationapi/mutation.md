@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # LocationAPIMutation
 GraphQL mutation to update location
 **updateLocation** (`input`: [InputLocation](inputlocation)) : [Location](object#location)

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: fixed;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+      
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        (document.location.href = redirectTo), true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Unified API's Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink"
+       href="javascript:;"
+       data-ref="query"
+       onClick="sideNavClick(this)"
+       >Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this)"
+        >Code</a
+      >
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="objects">Objects</h1>
+
+<h2 id="peopleexternalapi">PeopleExternalAPI</h2>
+<p>Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employees</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">employee</code></td>
+      <td><a href="object#employee">Employee</a></td>
+      <td>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns an Employee object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">peopleSearch</code></td>
+      <td><a href="object#employees">Employees</a></td>
+      <td>Lookup employee by name, title or any other information you know. Returns an object with list of employees and totalCount.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">searchFilter</code></td>
+      <td><a href="object#employees">Employees</a></td>
+      <td>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jobFunctions</code></td>
+      <td><a href="object#jobfunction">[JobFunction]</a></td>
+      <td>Returns list of all distinct job functions</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceAreas</code></td>
+      <td><a href="object#practicearea">[PracticeArea]</a></td>
+      <td>Returns list of all practice area objects</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">advancedFilters</code></td>
+      <td><a href="object#advancedfilters">AdvancedFilters</a></td>
+      <td>Returns list of available advanced filters <br /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PeopleExternalAPIResponseTime_Oneweektimelinedata</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"&gt;&lt;/iframe&gt;  &lt;iframe src="https://app.datadoghq.com/graph/embed?token=19eddccfe40710a321df48d79919617bdf4d81efbf18402e2d1ac79e9421e009&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"&gt;&lt;/iframe&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="employee">Employee</h2>
+<p>Employee Type - the main data structure used by the People API graph. In a logical People graph, each node is an instance of this type.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s unique Id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">firstName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s first name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s last name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">profilePicture</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Profile picture</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">academicTitle</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee academic title for e.g Dr.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">email</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official email.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official phone.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jobTitle</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s job title</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">organization</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s organisation</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assistantName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s assistant’s name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assistantEmail</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s assistant’s email</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assistantPhoneNumber</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s assistant’s phone number</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">languages</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Languages</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">education</code></td>
+      <td><a href="object#education">[Education]</a></td>
+      <td>Employee’s education</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expertiseSummary</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s expertise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">industryExpertise</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Employee’s industry expertise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">functionalExpertise</code></td>
+      <td><a href="object#functionalexpertise">[FunctionalExpertise]</a></td>
+      <td>Employee’s functional expertise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">professionalExperience</code></td>
+      <td><a href="object#professionalbackground">[ProfessionalBackground]</a></td>
+      <td>List of professional background of employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">relevantExperience</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Employee’s relevant experience</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceAreas</code></td>
+      <td><a href="object#practicearea">[PracticeArea]</a></td>
+      <td>List o practice areas associated with the employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastUpdated</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Timestamp when people api updated itself with the snowflake</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="education">Education</h2>
+<p>Object representation for the Education</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">degree</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Degree</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">subject</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Subject</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">university</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>University</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">years</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Degree years</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="functionalexpertise">FunctionalExpertise</h2>
+<p>Object representation for the Functional Expertise</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">topic</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Topic</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">level</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Level of expertise</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="professionalbackground">ProfessionalBackground</h2>
+<p>Object representation for the Professional Background</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">company</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Company</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">job_title</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Job title</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">industry</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Industry</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">years</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Years of experience</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practicearea">PracticeArea</h2>
+<p>Object representation for the Practice Area</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">topic</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name/Topic of the practice area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sub_topic</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Sub topic of a practice area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">level</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Level of  expertise of the employee</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="employees">Employees</h2>
+<p>List of employees for search result with total number of employees actually exists for seach query provided</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employees</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>List of employee objects</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">totalCount</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>The total number of matching employees for the search query exists in data base, regardless of limit provided</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="jobfunction">JobFunction</h2>
+<p>Object representation for a Job Function</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the Job Function</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="advancedfilters">AdvancedFilters</h2>
+<p>Object for available advanced filters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">functionalExpertise</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>All functional expertise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceAreas</code></td>
+      <td><a href="object#practiceareafilter">[PracticeAreaFilter]</a></td>
+      <td>All practice areas</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practiceareafilter">PracticeAreaFilter</h2>
+<p>Object representation for the Practice Area Filter Type</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">topic</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the topic</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">subTopics</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>List of sub topics within a topic</td>
+    </tr>
+  </tbody>
+</table>
+
+    </main>
+  </body>
+</html>

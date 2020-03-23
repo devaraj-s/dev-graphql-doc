@@ -18,7 +18,7 @@
         padding: 8px 0;
         background: #eee;
         color: rgba(255, 255, 255, 0.7);
-        height: 100%;
+      
       }
 
       .sidenav a {
@@ -89,7 +89,11 @@
 
     <div class="sidenav">
       <a href="/index.html">Home</a>
-      <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
+      <a id="descriptionLink"
+       href="javascript:;"
+       data-ref="query"
+       onClick="sideNavClick(this)"
+       >Description</a>
       <a
         id="codeLink"
         href="javascript:;"

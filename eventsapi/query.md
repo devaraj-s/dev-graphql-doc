@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # EventsAPIFetch
 Graph based API to get events information, including their location. <br />
 **event** (`_id`: [String](scalar#string)) : [OutputEvent](object#outputevent)

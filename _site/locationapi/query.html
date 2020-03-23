@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: fixed;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+      
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        (document.location.href = redirectTo), true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Unified API's Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink"
+       href="javascript:;"
+       data-ref="query"
+       onClick="sideNavClick(this)"
+       >Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this)"
+        >Code</a
+      >
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="locationapi">LocationAPI</h1>
+<p>Graph based API to get Location or Location.  <br />
+<strong>location</strong> (<code class="highlighter-rouge">id</code>: <a href="scalar#string">String</a>) : <a href="object#location">Location</a></p>
+
+<p>Navigate location graph via this query, you will use this if you have access to location code otherwise use search query. Returns an Location object.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>locationbyIds</strong> (<code class="highlighter-rouge">ids</code>: <a href="scalar#string">[String]</a>) : <a href="object#location">[Location]</a></p>
+
+<p>Navigate location graph via this query, you will use this if you have access to location code otherwise use search query. Returns an collection Location object.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ids</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Array of location office code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>search</strong> (<code class="highlighter-rouge">filter</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">filterType</code>: <a href="enum#filtertype">FilterType</a>) : <a href="object#location">[Location]</a></p>
+
+<p>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">filter</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Value of filter should be filter name followed by equalTo symbol(=) and then value eg : “zipCode=123456”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filterType</code></td>
+      <td><a href="enum#filtertype">FilterType</a></td>
+      <td>Filter type OR/AND/NOT. Default is OR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>searchfilter</strong> (<code class="highlighter-rouge">filters</code>: <a href="search">[search]</a>) : <a href="object#location">[Location]</a></p>
+
+<p>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="search">[search]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>locations</strong> (<code class="highlighter-rouge">regions</code>: <a href="enum#regiontype">[RegionType]</a>) : <a href="object#location">[Location]</a></p>
+
+<p>Returns all location which exists sorted in ascending order by officeCode</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">regions</code></td>
+      <td><a href="enum#regiontype">[RegionType]</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>hotels</strong> (<code class="highlighter-rouge">locationId</code>: <a href="scalar#string">String</a>) : <a href="object#hotel">[Hotel]</a></p>
+
+<p>Lookup for hotels in given location. Returns hotel in the location in a array</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">locationId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>airports</strong> (<code class="highlighter-rouge">locationId</code>: <a href="scalar#string">String</a>) : <a href="object#airport">[Airport]</a></p>
+
+<p>Lookup for airports in given location. Returns airports in the location in a array</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">locationId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>searchByAddress</strong> (<code class="highlighter-rouge">text</code>: <a href="scalar#string">String</a>) : <a href="object#location">[Location]</a></p>
+
+<p>Search for the given text and return collection of location data using  third party api.This locations are not available in location master <br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">text</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>LocationAPICustomOfficesQuery_Realtimecustomreport</strong>  : <a href="scalar#string">[String]</a></p>
+
+<iframe src="https://www.site24x7.eu/public/dashboard/I6RSF5T1vs2VmjfvcW_EdbuuY2099IWqSJzovxoDudGlBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGONE9Ue6GjDDiVh8LVWTUuavrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>
+<p><br /></p>
+
+<p><strong>LocationAPIResponseTime_Oneweektimelinedata</strong>  : <a href="scalar#string">[String]</a></p>
+
+<iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"></iframe>
+
+    </main>
+  </body>
+</html>

@@ -107,53 +107,11 @@
     </div>
 
     <main id="content" class="main-content" role="main">
-      <h1 id="preferncesapimutation">PreferncesAPIMutation</h1>
-<p>Graph based mutation to store an employee’s preferences and create teams
-<strong>preference</strong> (<code class="highlighter-rouge">input</code>: <a href="inputpreference">InputPreference</a>) : <a href="object#outputpreference">OutputPreference</a></p>
+      <h1 id="eventsapifetch">EventsAPIFetch</h1>
+<p>Graph based API to get events information, including their location. <br />
+<strong>event</strong> (<code class="highlighter-rouge">_id</code>: <a href="scalar#string">String</a>) : <a href="object#outputevent">OutputEvent</a></p>
 
-<p>Add user preferences</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">input</code></td>
-      <td><a href="inputpreference">InputPreference</a></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>team</strong> (<code class="highlighter-rouge">input</code>: <a href="teaminput">TeamInput</a>) : <a href="object#teamoutput">TeamOutput</a></p>
-
-<p>Create Team</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">input</code></td>
-      <td><a href="teaminput">TeamInput</a></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>deleteTeam</strong> (<code class="highlighter-rouge">_id</code>: <a href="scalar#string">String</a>) : <a href="object#teamoutput">TeamOutput</a></p>
-
-<p>Delete Team</p>
+<p>Fetch event by id</p>
 
 <table>
   <thead>
@@ -167,14 +125,14 @@
     <tr>
       <td><code class="highlighter-rouge">_id</code></td>
       <td><a href="scalar#string">String</a></td>
-      <td> </td>
+      <td>Id of an event to be requested</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>updateTeam</strong> (<code class="highlighter-rouge">_id</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">fieldsToUpdate</code>: <a href="teaminput">TeamInput</a>) : <a href="object#teamoutput">TeamOutput</a></p>
+<p><strong>events</strong> (<code class="highlighter-rouge">filter</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">from</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">to</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">filterType</code>: <a href="enum#filtertype">FilterType</a>) : <a href="object#outputevent">[OutputEvent]</a></p>
 
-<p>Update Team</p>
+<p>Fetch events by any filter, such as locationId=LON</p>
 
 <table>
   <thead>
@@ -186,17 +144,71 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">_id</code></td>
+      <td><code class="highlighter-rouge">filter</code></td>
       <td><a href="scalar#string">String</a></td>
-      <td> </td>
+      <td>Filter events on the basis of input fields, eg. locationId=LON</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">fieldsToUpdate</code></td>
-      <td><a href="teaminput">TeamInput</a></td>
-      <td> </td>
+      <td><code class="highlighter-rouge">from</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Utc Time number number to query events from date. Default is current time of the request sent.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">to</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Utc time stamp number to query events to time. Default is one month after the current time.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>One or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filterType</code></td>
+      <td><a href="enum#filtertype">FilterType</a></td>
+      <td>Filter type OR/AND/NOT. Default is OR</td>
     </tr>
   </tbody>
 </table>
+
+<p><strong>eventsFilter</strong> (<code class="highlighter-rouge">from</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">to</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="search">[search]</a>) : <a href="object#outputevent">[OutputEvent]</a></p>
+
+<p>Fetch events by any filter, such as locationId=LON</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">from</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Utc Time number number to query events from date. Default is current time of the request sent.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">to</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Utc time stamp number to query events to time. Default is one month after the current time.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="search">[search]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>categories</strong>  : <a href="scalar#string">[String]</a></p>
+
+<p>Fetch all event categories</p>
+
+<p><strong>EventsAPIResponseTime_Oneweektimelinedata</strong>  : <a href="scalar#string">[String]</a></p>
+
+<iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"></iframe>
 
     </main>
   </body>

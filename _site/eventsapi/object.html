@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: fixed;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+      
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        (document.location.href = redirectTo), true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Unified API's Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink"
+       href="javascript:;"
+       data-ref="query"
+       onClick="sideNavClick(this)"
+       >Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this)"
+        >Code</a
+      >
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="objects">Objects</h1>
+
+<h2 id="eventsapifetch">EventsAPIFetch</h2>
+<p>Graph based API to get events information, including their location. <br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">event</code></td>
+      <td><a href="object#outputevent">OutputEvent</a></td>
+      <td>Fetch event by id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">events</code></td>
+      <td><a href="object#outputevent">[OutputEvent]</a></td>
+      <td>Fetch events by any filter, such as locationId=LON</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">eventsFilter</code></td>
+      <td><a href="object#outputevent">[OutputEvent]</a></td>
+      <td>Fetch events by any filter, such as locationId=LON</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">categories</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Fetch all event categories</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">EventsAPIResponseTime_Oneweektimelinedata</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"&gt;&lt;/iframe&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="outputevent">OutputEvent</h2>
+<p>Input event payload</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td><a href="scalar#string">String!</a></td>
+      <td>Title of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">_id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>id of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">summary</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Summary of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Time zone of the event location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">start</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Start date unix timestamp of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">end</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>End date unix timestamp of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">locationId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Location Id or code of the office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td><a href="object#outputlocation">OutputLocation</a></td>
+      <td>Location details of the office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee Id (HRID) of the host</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">host</code></td>
+      <td><a href="object#employeeoutputtype">EmployeeOutputType</a></td>
+      <td>Host Employee details</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#outputcontenttype">[OutputContentType]</a></td>
+      <td>Events related content links</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">attendeesIds</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Employee Ids (HRIDs) of the all the attendees</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">attendees</code></td>
+      <td><a href="object#employeeoutputtype">[EmployeeOutputType]</a></td>
+      <td>Employee details of all the attending employees</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">categories</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Category is the type of event. Default is [MEETING]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">category</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Category is the type of event. Default is MEETING</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">categoryImage</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Category is the type of event. Default is MEETING</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">room</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Room name of venue of the event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">visibility</code></td>
+      <td><a href="enum#eventvisibility">EventVisibility</a></td>
+      <td>Event visibility scope</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">allDay</code></td>
+      <td><a href="scalar#boolean">Boolean</a></td>
+      <td>Is event for the entire day.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">createdBy</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee Id(HRIDs) of the event creator</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="outputlocation">OutputLocation</h2>
+<p>Location Type - object for the office location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique office code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Office name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">regionId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique region id of the office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street2</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street3</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>City of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>State of Office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zipCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Zip-code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">countryCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geoLocation</code></td>
+      <td><a href="object#outputgeolocation">OutputGeoLocation</a></td>
+      <td>Geolocation has latitude and longitude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Phone number of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to an office image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#outputcontenttype">[OutputContentType]</a></td>
+      <td>Contents inside the office location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Time zone of the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">weather</code></td>
+      <td><a href="object#weather">Weather</a></td>
+      <td>Current weather for the location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="outputgeolocation">OutputGeoLocation</h2>
+<p>GeoLocation Type - object for latitude and longitude</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">lat</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Latitude of a geo location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Longitude of a geo location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="outputcontenttype">OutputContentType</h2>
+<p>Object representation for the ContentLink</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">link</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">image</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Icon name for the content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weather">Weather</h2>
+<p>Weather Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather icon to be used</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather description of the description</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">temperature</code></td>
+      <td><a href="object#weatherunit">[WeatherUnit]</a></td>
+      <td>Temperature in both celcius and farenheit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weatherunit">WeatherUnit</h2>
+<p>Weather Unit Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unit Type- Celcius or Farenheit</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td><a href="scalar#float">Float</a></td>
+      <td>Current temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="employeeoutputtype">EmployeeOutputType</h2>
+<p>Employee Type - the main data structure used by the People API graph. In a logical People graph, each node is an instance of this type.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s unique Id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Full name of the Employee with ‘Surname, Firstname’ format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">displayName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Display name of the Employee with ‘Surname Firstname’ format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">firstName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s first name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s last name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s Business title.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cohort</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s cohort</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">status</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s status Active/Inactive/LOA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jobFunction</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s job function</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">globalTitle</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s global title</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">email</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official email.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official phone.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mobile</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official mobile phone.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s host office code, where the employee is currently based</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeRegion</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Host office region</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s home office code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeRegion</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s home office region</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>DEPRECATED - location has been deprecated. Use hostLocation { officeCode } or hostOfficeCode instead , Employee’s host office location code, where the employee is currently based</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeLocation</code></td>
+      <td><a href="object#outputlocation">OutputLocation</a></td>
+      <td>Employee’s host office location object, where the employee is currently based.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeLocation</code></td>
+      <td><a href="object#outputlocation">OutputLocation</a></td>
+      <td>Employee’s home office location object, where the employee is from.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">picture</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s profile pic in jpeg format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">profilePicture</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s profile pic in jpeg format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lineManagerId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Line Manager’s Id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lineManager</code></td>
+      <td><a href="object#employeeoutputtype">EmployeeOutputType</a></td>
+      <td>Line Manager, returned as an Employee object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reportingLine</code></td>
+      <td><a href="object#employeeoutputtype">[EmployeeOutputType]</a></td>
+      <td>Reporting line of the employee. Returned as an array of Employee objects.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastUpdated</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Timestamp when people api updated itself with the snowflake</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="eventsapimutation">EventsAPIMutation</h2>
+<p>Graph based API to get events information, including their location.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">event</code></td>
+      <td><a href="object#outputevent">OutputEvent</a></td>
+      <td>Create event</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">deleteEvent</code></td>
+      <td><a href="object#outputevent">OutputEvent</a></td>
+      <td>Delete an event with provided _id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">updateEvent</code></td>
+      <td><a href="object#outputevent">OutputEvent</a></td>
+      <td>Update an event for given _id</td>
+    </tr>
+  </tbody>
+</table>
+
+    </main>
+  </body>
+</html>

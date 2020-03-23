@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # EventsAPIMutation
 Graph based API to get events information, including their location.
 **event** (`input`: [InputEvent](inputevent)) : [OutputEvent](object#outputevent)

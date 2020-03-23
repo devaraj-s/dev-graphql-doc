@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # PeopleExternalAPI
 Graph based API to get External People information. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br />
 **employees** (`ids`: [[String]](scalar#string), `sector`: [String](scalar#string)) : [[Employee]](object#employee)

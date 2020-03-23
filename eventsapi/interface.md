@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Interfaces
 Interfaces serve as parent objects from which other objects can inherit.
 

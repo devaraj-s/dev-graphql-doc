@@ -1,3 +1,6 @@
+---
+layout: default
+---
 ## PeopleExternalAPI - Performance results
 
 **PeopleExternalAPIResponseTime_Oneweektimelinedata**

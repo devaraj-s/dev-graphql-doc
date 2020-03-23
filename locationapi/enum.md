@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Enums
 Enums represent possible sets of values for a field.
 
