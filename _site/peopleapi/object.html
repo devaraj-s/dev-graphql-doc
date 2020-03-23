@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: fixed;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+        height: 100%;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        (document.location.href = redirectTo), true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Unified API's Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink" href="">Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this)"
+        >Code</a
+      >
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="objects">Objects</h1>
+
+<h2 id="peopleapi">PeopleAPI</h2>
+<p>Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br /><br /><strong>CodeSamples:</strong> <a href="peopleapi_code#Code">[Code]</a> <br /><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employees</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">employee</code></td>
+      <td><a href="object#employee">Employee</a></td>
+      <td>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns an Employee object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">search</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>DEPRECATED -  Search has been deprecated, Use peopleSearch() instead, Lookup employee by name, title or any other information you know. Returns a list of employees <strong>Deprecated</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">peopleSearch</code></td>
+      <td><a href="object#employees">Employees</a></td>
+      <td>Lookup employee by name, title or any other information you know. Returns an object with list of employees and totalCount.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">searchFilter</code></td>
+      <td><a href="object#employees">Employees</a></td>
+      <td>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jobFunctions</code></td>
+      <td><a href="object#jobfunction">[JobFunction]</a></td>
+      <td>Returns list of all distinct job functions</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceAreas</code></td>
+      <td><a href="object#practicearea">[PracticeArea]</a></td>
+      <td>Returns list of all practice area objects</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cohorts</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Returns list of all distinct cohorts</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preferences</code></td>
+      <td><a href="object#outputpreference">[OutputPreference]</a></td>
+      <td>Returns list of preferences</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">team</code></td>
+      <td><a href="object#teamoutput">TeamOutput</a></td>
+      <td>Return team for given team Id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">teams</code></td>
+      <td><a href="object#teamoutput">[TeamOutput]</a></td>
+      <td>Returns list of all the teams for an employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">allTeams</code></td>
+      <td><a href="object#teamoutput">[TeamOutput]</a></td>
+      <td>Returns list of all the teams</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entitlements</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Returns list of all groups of an employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">topicCategories</code></td>
+      <td><a href="object#topic">[Topic]</a></td>
+      <td>List of all topic role categories</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">topicGroups</code></td>
+      <td><a href="object#rolegroup">[RoleGroup]</a></td>
+      <td>List all topic role groups</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PeopleAPIProfileQuery_Realtimecustomreport</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"&gt;&lt;/iframe&gt;  <br /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PeopleAPIResponseTime_Oneweektimelinedata</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>&lt;iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"&gt;&lt;/iframe&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="employee">Employee</h2>
+<p>Employee Type - the main data structure used by the People API graph. In a logical People graph, each node is an instance of this type.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s unique Id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Full name of the Employee with ‘Surname, Firstname’ format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">displayName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Display name of the Employee with ‘Surname Firstname’ format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">firstName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s first name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s last name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">slackId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s Slack alias</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s Business title.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cohort</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s cohort</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">status</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s status Active/Inactive/LOA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jobFunction</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s job function</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">globalTitle</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s global title</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">email</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official email.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official phone.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mobile</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s official mobile phone.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nationality</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s nationality</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hireDate</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s hiring date (timestamp)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s host office code, where the employee is currently based</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeRegion</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Host office region</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s home office code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeRegion</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s home office region</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>DEPRECATED - location has been deprecated. Use hostLocation { officeCode } or hostOfficeCode instead , Employee’s host office location code, where the employee is currently based</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hostOfficeLocation</code></td>
+      <td><a href="object#location">Location</a></td>
+      <td>Employee’s host office location object, where the employee is currently based.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeOfficeLocation</code></td>
+      <td><a href="object#location">Location</a></td>
+      <td>Employee’s home office location object, where the employee is from.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">picture</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s profile pic in jpeg format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">profilePicture</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s profile pic in jpeg format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lineManagerId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Line Manager’s Id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lineManager</code></td>
+      <td><a href="object#employee">Employee</a></td>
+      <td>Line Manager, returned as an Employee object.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reportingLine</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>Reporting line of the employee. Returned as an array of Employee objects.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lastUpdated</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Timestamp when people api updated itself with the snowflake</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preferences</code></td>
+      <td><a href="object#outputpreference">[OutputPreference]</a></td>
+      <td>Preferences of employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceArea</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Practice area the employee belongs to</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">practiceAreas</code></td>
+      <td><a href="object#practiceareainfo">[PracticeAreaInfo]</a></td>
+      <td>Practice areas details of an employee</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">responsibilityCenterId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s responsibility center Id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">responsibilityCenterName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s responsibility center name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">responsibilityPercentage</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s responsibility percentage</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">responsibilityGroupName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee’s responsibility group name</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="location">Location</h2>
+<p>Location Type - object for the office location</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique office code</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Office name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">regionId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unique region id of the office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street2</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">street3</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Street where office is located</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>City of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>State of Office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zipCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Zip-code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">countryCode</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Country code of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geoLocation</code></td>
+      <td><a href="object#geolocation">GeoLocation</a></td>
+      <td>Geolocation has latitude and longitude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Phone number of office</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to an office image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents inside the office location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Time zone of the location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">weather</code></td>
+      <td><a href="object#weather">Weather</a></td>
+      <td>current weather for the location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="geolocation">GeoLocation</h2>
+<p>GeoLocation Type - object for latitude and longitude</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">lat</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Latitude of a geo location</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Longitude of a geo location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contenttype">ContentType</h2>
+<p>Object representation for the ContentLink</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">link</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Link to the content</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">image</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Icon name for the content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weather">Weather</h2>
+<p>Weather Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather icon to be used</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Weather description of the description</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">temperature</code></td>
+      <td><a href="object#weatherunit">[WeatherUnit]</a></td>
+      <td>Temperature in both celcius and farenheit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="weatherunit">WeatherUnit</h2>
+<p>Weather Unit Model</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Unit Type- Celcius or Farenheit</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td><a href="scalar#float">Float</a></td>
+      <td>Current temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="outputpreference">OutputPreference</h2>
+<p>Output preference object</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employeeId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee Id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">key</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Preferences name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">values</code></td>
+      <td><a href="object#valuetype">[ValueType]</a></td>
+      <td>Preferences values</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="valuetype">ValueType</h2>
+<p>Preference representation</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Preferred employee id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Preference type. Default is string</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timestamp</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Epoch Timestamp number</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practiceareainfo">PracticeAreaInfo</h2>
+<p>Practice Area Details</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Level</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Level of expertise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Topic</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Topic of the practice area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Type</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Practice area type</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="employees">Employees</h2>
+<p>List of employees for search result with total number of employees actually exists for seach query provided</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employees</code></td>
+      <td><a href="object#employee">[Employee]</a></td>
+      <td>List of employee objects</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">totalCount</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>The total number of matching employees for the search query exists in data base, regardless of limit provided</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">searchFilters</code></td>
+      <td><a href="object#searchresultfiltertype">[SearchResultFilterType]</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="searchresultfiltertype">SearchResultFilterType</h2>
+<p>SearchResultFilter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">field</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>FIlter Field Value</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="object#resultfiltertype">[ResultFilterType]</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resultfiltertype">ResultFilterType</h2>
+<p>ResultFilterType</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">key</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>FIlter Field Value</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">count</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Longitude of a geo location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="jobfunction">JobFunction</h2>
+<p>Object representation for a Job Function</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the Job Function</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practicearea">PracticeArea</h2>
+<p>Object representation for the Practice Area</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the practice area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">category</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Category of pracitce area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">topics</code></td>
+      <td><a href="object#practiceareatopic">[PracticeAreaTopic]</a></td>
+      <td>Topics inside practice area</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>URL of the practice area image</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">homeUrl</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Home Url in practice are</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents inside the practice area</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practiceareatopic">PracticeAreaTopic</h2>
+<p>Object representation for the Practice Area Topic</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of the topic</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="teamoutput">TeamOutput</h2>
+<p>Team data</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">_id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team Id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">summary</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team information summary</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">slackURL</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team slack URL</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">egnyteURL</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team egnyte URL</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">image</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Image for the team</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">imageName</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Image for the team</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">employeeIds</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Employee Ids of team members</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contentLinks</code></td>
+      <td><a href="object#contenttype">[ContentType]</a></td>
+      <td>Contents links for team</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="topic">Topic</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#id">ID</a></td>
+      <td>topic id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>name of topic</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortOrder</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>sorting preference for UI</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">roleCategories</code></td>
+      <td><a href="object#rolecategory">[RoleCategory]</a></td>
+      <td>categories of role</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="rolecategory">RoleCategory</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#id">ID</a></td>
+      <td>Role category id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of Role category</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">groups</code></td>
+      <td><a href="object#rolegroup">[RoleGroup]</a></td>
+      <td>Goups of Role</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortOrder</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>sorting preference for UI</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="rolegroup">RoleGroup</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#id">ID</a></td>
+      <td>Role group id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of role group</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortOrder</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>sorting preference for UI</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">roles</code></td>
+      <td><a href="object#topicrole">[TopicRole]</a></td>
+      <td>List of roles in current group</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="topicrole">TopicRole</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#id">ID</a></td>
+      <td>Role id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Name of role</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Description of the role</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">displayText</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Display text for the role</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">detailDisplayText</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Detailed description of role</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contact</code></td>
+      <td><a href="object#employee">Employee</a></td>
+      <td>Employee details</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortOrder</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>sorting preference for UI</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="preferncesapimutation">PreferncesAPIMutation</h2>
+<p>Graph based mutation to store an employee’s preferences and create teams</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">preference</code></td>
+      <td><a href="object#outputpreference">OutputPreference</a></td>
+      <td>Add user preferences</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">team</code></td>
+      <td><a href="object#teamoutput">TeamOutput</a></td>
+      <td>Create Team</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">deleteTeam</code></td>
+      <td><a href="object#teamoutput">TeamOutput</a></td>
+      <td>Delete Team</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">updateTeam</code></td>
+      <td><a href="object#teamoutput">TeamOutput</a></td>
+      <td>Update Team</td>
+    </tr>
+  </tbody>
+</table>
+
+    </main>
+  </body>
+</html>

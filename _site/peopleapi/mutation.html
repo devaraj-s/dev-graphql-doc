@@ -89,7 +89,7 @@
 
     <div class="sidenav">
       <a href="/index.html">Home</a>
-      <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
+      <a id="descriptionLink" href="">Description</a>
       <a
         id="codeLink"
         href="javascript:;"
@@ -103,7 +103,97 @@
     </div>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
+      <h1 id="preferncesapimutation">PreferncesAPIMutation</h1>
+<p>Graph based mutation to store an employee’s preferences and create teams
+<strong>preference</strong> (<code class="highlighter-rouge">input</code>: <a href="inputpreference">InputPreference</a>) : <a href="object#outputpreference">OutputPreference</a></p>
+
+<p>Add user preferences</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">input</code></td>
+      <td><a href="inputpreference">InputPreference</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>team</strong> (<code class="highlighter-rouge">input</code>: <a href="teaminput">TeamInput</a>) : <a href="object#teamoutput">TeamOutput</a></p>
+
+<p>Create Team</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">input</code></td>
+      <td><a href="teaminput">TeamInput</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>deleteTeam</strong> (<code class="highlighter-rouge">_id</code>: <a href="scalar#string">String</a>) : <a href="object#teamoutput">TeamOutput</a></p>
+
+<p>Delete Team</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">_id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>updateTeam</strong> (<code class="highlighter-rouge">_id</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">fieldsToUpdate</code>: <a href="teaminput">TeamInput</a>) : <a href="object#teamoutput">TeamOutput</a></p>
+
+<p>Update Team</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">_id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fieldsToUpdate</code></td>
+      <td><a href="teaminput">TeamInput</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
     </main>
   </body>
 </html>

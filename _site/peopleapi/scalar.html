@@ -89,7 +89,7 @@
 
     <div class="sidenav">
       <a href="/index.html">Home</a>
-      <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
+      <a id="descriptionLink" href="">Description</a>
       <a
         id="codeLink"
         href="javascript:;"
@@ -103,7 +103,30 @@
     </div>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
+      <h1 id="scalars">Scalars</h1>
+<p>Scalars are primitive values: <code class="highlighter-rouge">Int</code>, <code class="highlighter-rouge">Float</code>, <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Boolean</code>, or <code class="highlighter-rouge">ID</code>.</p>
+
+<p>When calling the GraphQL API, you must specify nested subfield until you return only scalars.</p>
+
+<h2 id="string">String</h2>
+<p>The <code class="highlighter-rouge">String</code> scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.</p>
+
+<h2 id="float">Float</h2>
+<p>The <code class="highlighter-rouge">Float</code> scalar type represents signed double-precision fractional values as specified by <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>.</p>
+
+<h2 id="int">Int</h2>
+<p>The <code class="highlighter-rouge">Int</code> scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>
+
+<h2 id="id">ID</h2>
+<p>The <code class="highlighter-rouge">ID</code> scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code class="highlighter-rouge">"4"</code>) or integer (such as <code class="highlighter-rouge">4</code>) input value will be accepted as an ID.</p>
+
+<h2 id="upload">Upload</h2>
+<p>The <code class="highlighter-rouge">Upload</code> scalar type represents a file upload.</p>
+
+<h2 id="boolean">Boolean</h2>
+<p>The <code class="highlighter-rouge">Boolean</code> scalar type represents <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.</p>
+
+
     </main>
   </body>
 </html>

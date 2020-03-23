@@ -89,7 +89,7 @@
 
     <div class="sidenav">
       <a href="/index.html">Home</a>
-      <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
+      <a id="descriptionLink" href="">Description</a>
       <a
         id="codeLink"
         href="javascript:;"
@@ -103,7 +103,11 @@
     </div>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
+      <h1 id="interfaces">Interfaces</h1>
+<p>Interfaces serve as parent objects from which other objects can inherit.</p>
+
+<p>For example, <code class="highlighter-rouge">Lockable</code> is an interface because both <code class="highlighter-rouge">Issue</code> and <code class="highlighter-rouge">MergeRequest</code> objects can be locked. An interface has its own list of named fields that are shared by implementing objects.</p>
+
     </main>
   </body>
 </html>
