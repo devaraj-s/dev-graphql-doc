@@ -1,3 +1,6 @@
+---
+layout: default
+---
 ## PeopleAPI - Performance results
 
 **PeopleAPIProfileQuery_Realtimecustomreport**

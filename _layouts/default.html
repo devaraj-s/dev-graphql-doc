@@ -77,13 +77,13 @@
           <img src="../DevBanner_icon.png" />
         </div>
         <div class="banner-text">
-          <h1>BCG Developer Documentation</h1>
+          <h1>BCG Unified API's Documentation</h1>
           <p>
             Browse the latest developer documentation including API reference,
             articles, and sample code.
           </p>
         </div>
-        <div class="banner-btn"><a href="../index.html">Home</a></div>
+        <div class="banner-btn" style="visibility: hidden;"><a href="../index.html">Home</a></div>
       </div>
     </div>
 
@@ -97,7 +97,9 @@
         onClick="sideNavClick(this)"
         >Code</a
       >
-      <a id="dashboardLink" href="{{performancedemo}}">Performance</a>
+      <a id="dashboardLink" href="javascript:;"
+      data-ref="performance"
+      onClick="sideNavClick(this)">Performance</a>
     </div>
 
     <main id="content" class="main-content" role="main">

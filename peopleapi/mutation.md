@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # PreferncesAPIMutation
 Graph based mutation to store an employee's preferences and create teams
 **preference** (`input`: [InputPreference](inputpreference)) : [OutputPreference](object#outputpreference)
