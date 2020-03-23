@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: absolute;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+        height: 100%;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        window.open(redirectTo);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Developer Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink" href="">Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this);return false;"
+        >Code</a
+      >
+      <a id="dashboardLink" href="">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="peopleapi">PeopleAPI</h1>
+<p>Graph based API to get People or Employee information, including their relationships like line managers, reporting line and office location. You can use an Employee query if employee id is known or use a Search query to look up an Employee.<br /><br /><strong>CodeSamples:</strong> <a href="peopleapi_code#Code">[Code]</a> <br /><br />
+<strong>employees</strong> (<code class="highlighter-rouge">ids</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>) : <a href="object#employee">[Employee]</a></p>
+
+<p>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns multiple employee objects for the array of ids provided.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ids</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Array of employee ids</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>employee</strong> (<code class="highlighter-rouge">id</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">field</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>) : <a href="object#employee">Employee</a></p>
+
+<p>Navigate employee graph via this query, you will use this if you have access to Employee ID otherwise use search query. Returns an Employee object.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Employee Id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">field</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">Deprecated</code><strong>search</strong> (<code class="highlighter-rouge">find</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filter</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">limit</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">offset</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>, <code class="highlighter-rouge">sortBy</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">filterType</code>: <a href="enum#filtertype">FilterType</a>) : <a href="object#employee">[Employee]</a>
+<em>Search has been deprecated, Use peopleSearch() instead</em>
+DEPRECATED -  Search has been deprecated, Use peopleSearch() instead, Lookup employee by name, title or any other information you know. Returns a list of employees</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">find</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Value of find should be an Employee name eg : “Lastname, Firstname”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filter</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Value of filter should be filter name followed by equalTo symbol(=) and then value eg : “hostOfficeCode=CHI”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">limit</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Size of the page. Default is 30. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">offset</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Offset/start index of page. Default is 0. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortBy</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>A field name by which the list is suppose to be ordered by</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filterType</code></td>
+      <td><a href="enum#filtertype">FilterType</a></td>
+      <td>Filter type OR/AND/NOT. Default is OR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>peopleSearch</strong> (<code class="highlighter-rouge">find</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filter</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">limit</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">offset</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>, <code class="highlighter-rouge">sortBy</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">filterType</code>: <a href="enum#filtertype">FilterType</a>) : <a href="object#employees">Employees</a></p>
+
+<p>Lookup employee by name, title or any other information you know. Returns an object with list of employees and totalCount.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">find</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Value of find should be an Employee name eg : “Lastname, Firstname”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filter</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Value of filter should be filter name followed by equalTo symbol(=) and then value eg : “hostOfficeCode=CHI”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">limit</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Size of the page. Default is 30. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">offset</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Offset/start index of page. Default is 0. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortBy</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>A field name by which the list is suppose to be ordered by.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filterType</code></td>
+      <td><a href="enum#filtertype">FilterType</a></td>
+      <td>Filter type OR/AND/NOT. Default is OR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>searchFilter</strong> (<code class="highlighter-rouge">find</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">filters</code>: <a href="search">[search]</a>, <code class="highlighter-rouge">resultFilters</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">limit</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">offset</code>: <a href="scalar#int">Int</a>, <code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>, <code class="highlighter-rouge">sortBy</code>: <a href="scalar#string">[String]</a>, <code class="highlighter-rouge">sortOrder</code>: <a href="enum#sortorder">SortOrder</a>) : <a href="object#employees">Employees</a></p>
+
+<p>Lookup location by name, title or any other information you know. Returns the matching location objects as an array.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">find</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Find employee by name or designation i.e. search on fields: “Lastname, Firstname, Title, PracticeArea Topic, JobFunction, GlobalTitle”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filters</code></td>
+      <td><a href="search">[search]</a></td>
+      <td>Two or more filters separated by commas(,). Use filterType enum with this</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">resultFilters</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>Possible filters and available result counts</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">limit</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Size of the page. Default is 30. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">offset</code></td>
+      <td><a href="scalar#int">Int</a></td>
+      <td>Offset/start index of page. Default is 0. Works for both filter and find</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortBy</code></td>
+      <td><a href="scalar#string">[String]</a></td>
+      <td>A field name by which the list is suppose to be ordered by.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortOrder</code></td>
+      <td><a href="enum#sortorder">SortOrder</a></td>
+      <td>Order of sorting.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>jobFunctions</strong> (<code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>) : <a href="object#jobfunction">[JobFunction]</a></p>
+
+<p>Returns list of all distinct job functions</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>practiceAreas</strong>  : <a href="object#practicearea">[PracticeArea]</a></p>
+
+<p>Returns list of all practice area objects</p>
+
+<p><strong>cohorts</strong> (<code class="highlighter-rouge">dataSet</code>: <a href="enum#dataset">DataSet</a>) : <a href="scalar#string">[String]</a></p>
+
+<p>Returns list of all distinct cohorts</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">dataSet</code></td>
+      <td><a href="enum#dataset">DataSet</a></td>
+      <td>Data set type from which people data is to be accessed. Currently it is BCG_IT(only IT people) or BCG_ALL(BCG worldwide people)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>preferences</strong> (<code class="highlighter-rouge">employeeId</code>: <a href="scalar#string">String!</a>, <code class="highlighter-rouge">key</code>: <a href="scalar#string">String</a>) : <a href="object#outputpreference">[OutputPreference]</a></p>
+
+<p>Returns list of preferences</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employeeId</code></td>
+      <td><a href="scalar#string">String!</a></td>
+      <td>Employee ID for which all preferences needs to be fetched</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">key</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>preference type for which all preferences needs to be fetched</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>team</strong> (<code class="highlighter-rouge">teamId</code>: <a href="scalar#string">String</a>) : <a href="object#teamoutput">TeamOutput</a></p>
+
+<p>Return team for given team Id</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">teamId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>Team Id</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>teams</strong> (<code class="highlighter-rouge">employeeId</code>: <a href="scalar#string">String!</a>) : <a href="object#teamoutput">[TeamOutput]</a></p>
+
+<p>Returns list of all the teams for an employee</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">employeeId</code></td>
+      <td><a href="scalar#string">String!</a></td>
+      <td>Employee ID for which all teams needs to be fetched</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>allTeams</strong>  : <a href="object#teamoutput">[TeamOutput]</a></p>
+
+<p>Returns list of all the teams</p>
+
+<p><strong>entitlements</strong>  : <a href="scalar#string">[String]</a></p>
+
+<p>Returns list of all groups of an employee</p>
+
+<p><strong>topicCategories</strong> (<code class="highlighter-rouge">topicId</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">sortBy</code>: <a href="scalar#string">String</a>) : <a href="object#topic">[Topic]</a></p>
+
+<p>List of all topic role categories</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">topicId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>topic id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortBy</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>A field name by which the list is suppose to be ordered by.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>topicGroups</strong> (<code class="highlighter-rouge">categoryId</code>: <a href="scalar#string">String</a>, <code class="highlighter-rouge">sortBy</code>: <a href="scalar#string">String</a>) : <a href="object#rolegroup">[RoleGroup]</a></p>
+
+<p>List all topic role groups</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">categoryId</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>category id</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sortBy</code></td>
+      <td><a href="scalar#string">String</a></td>
+      <td>A field name by which the list is suppose to be ordered by.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>PeopleAPIProfileQuery_Realtimecustomreport</strong>  : <a href="scalar#string">[String]</a></p>
+
+<iframe src="https://www.site24x7.eu/public/dashboard/FBlvh5-GIjZQ09kmJ05p1Fwf7Ra0mG2BSCYyMVfmq2alBW5Tkx55s7bPHfqIzxvLEOtJnC8lr8dQtZG5e-rGOAuhQYjGHWTH4izoFkhk3JTrq3xlVKIiynzbPbiIhati" scrolling="yes" align="center" height="200" width="800" border="0" frameborder="0"></iframe>
+<p><br /></p>
+
+<p><strong>PeopleAPIResponseTime_Oneweektimelinedata</strong>  : <a href="scalar#string">[String]</a></p>
+
+<iframe src="https://app.datadoghq.com/graph/embed?token=604d6baee98a8207f465840f9eeef3847bf06fa983bf64be7f6489793fbb61c5&amp;height=200&amp;width=400&amp;legend=true" width="400" height="200" frameborder="0"></iframe>
+
+    </main>
+  </body>
+</html>

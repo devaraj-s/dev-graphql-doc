@@ -1,150 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
 
-<head>
-  <!--
-    {% if site.google_analytics %}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}');
-      </script>
-    {% endif %}
-    <meta charset="UTF-8">
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: absolute;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+        height: 100%;
+      }
 
-{% seo %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-        <link href="../index.css" rel="stylesheet"   -->
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link href="../index.css" rel="stylesheet">
-  <style>
-
-.sidenav {
-  width: 183px;
-  position: absolute;
-  top:40vh;
-  z-index: 1;
-  overflow-x: hidden;
-  padding: 8px 0;
-    background: #eee;
-  color: rgba(255,255,255,0.7);
-  height:100%;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 13px;
-  color: #606c71;
-  display: block;
-}
-.main-content{
-    margin-left:183px;
-    }
-.sidenav a:hover {
-  color: #159957;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-
-<body>
-  <!-- 
-    <header class="page-header" role="banner">
-      <div class="banner">
-        <div class="banner-content">
-            <div class="banner-icon">
-                <img src="../DevBanner_icon.png" />
-            </div>
-            <div class="banner-text">
-                <h1>BCG Developer Documentation</h1>
-                <p>Browse the latest developer documentation including 
-                     API reference, articles, and sample code...</p> 
-                
-            </div>
-            <div class="banner-btn"><a href="../index.html">Home</a></div>
-        </div>
-    </div>
-    
-    </header> -->
-  <div class="banner">
-    <div class="banner-content">
-      <div class="banner-icon">
-        <img src="../DevBanner_icon.png" />
-      </div>
-      <div class="banner-text">
-        <h1>BCG Developer Documentation</h1>
-        <p>Browse the latest developer documentation including
-          API reference, articles, and sample code.</p>
-      </div>
-      <div class="banner-btn"><a href="../index.html">Home</a></div>
-
-    </div>
-  </div>
-
-  <script>
-    //document.getElementById("dynamicLink").innerHTML = window.location.href;
-  
-var linkValue = getUrlParameter('apiname');
-//alert(linkValue);
-  function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-};
-
-     var x = window.location.href;
-    //function myFunction() {
-      
-     //if (x.includes("eventsapi")) {
-      document.getElementById("descriptionLink").href = "https://devaraj-s.github.io/dev-graphql-doc/{{link}}/query.html?apiname={{link}}".replace("{{link}}", linkValue);
-      document.getElementById("codeLink").href = "https://devaraj-s.github.io/dev-graphql-doc/{{link}}/code.html?apiname={{link}}".replace("{{link}}", linkValue);
-      document.getElementById("dashboardLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/{{link}}/performance.html?apiname={{link}}".replace("{{link}}", linkValue);
-    // } else if (x.includes("locationapi")) {
-    //   document.getElementById("descriptionLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/locationapi/query.html";
-    //   document.getElementById("codeLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/locationapi/code.html";
-    //   document.getElementById("dashboardLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/locationapi/performance.html";
-    // } else if (x.includes("peopleexapi")) {
-    //   document.getElementById("descriptionLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/query.html";
-    //   document.getElementById("codeLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/code.html";
-    //   document.getElementById("dashboardLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleexapi/performance.html";
-    // } else {
-    //   document.getElementById("descriptionLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleapi/query.html";
-    //   document.getElementById("codeLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleapi/code.html";
-    //   document.getElementById("dashboardLink").innerHTML = "https://devaraj-s.github.io/dev-graphql-doc/peopleapi/performance.html";
-    // }
-  //}
-    
-    //document.getElementById("dynamicLink").href.replace("userName", "test1");
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        window.open(redirectTo);
+      }
     </script>
-  
-  <div class="sidenav">
-  <a href="https://devaraj-s.github.io/dev-graphql-doc/index.html">Home</a>
-  <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
-  <a id="codeLink" href="{{codedemo}}">Code</a>
-  <a id="dashboardLink" href="{{performancedemo}}">Performance</a>
-  </div>
+  </head>
 
-  <main id="content" class="main-content" role="main">
-    {{ content }}
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Developer Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
 
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink" href="{{descriptiondemo}}">Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this);return false;"
+        >Code</a
+      >
+      <a id="dashboardLink" href="{{performancedemo}}">Performance</a>
+    </div>
 
-
-  </main>
-</body>
-
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+    </main>
+  </body>
 </html>

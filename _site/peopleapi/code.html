@@ -1,9 +1,109 @@
----
-layout: default
----
-## Scenario 1: User wishes to find a person in the employee list  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
 
-**Test case 1: Find By First Name**  
+    <link href="../index.css" rel="stylesheet" />
+    <style>
+      .sidenav {
+        width: 183px;
+        position: absolute;
+        top: 40vh;
+        z-index: 1;
+        overflow-x: hidden;
+        padding: 8px 0;
+        background: #eee;
+        color: rgba(255, 255, 255, 0.7);
+        height: 100%;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #606c71;
+        display: block;
+      }
+      .main-content {
+        margin-left: 183px;
+      }
+      .sidenav a:hover {
+        color: #159957;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    </style>
+    <script>
+      function sideNavClick(link) {
+        var reference = link.getAttribute('data-ref');
+        var hostname = window.location.hostname;
+        var path = window.location.pathname;
+        var api = '';
+        if (path.length > 0) {
+          var pathSplit = path.split('\/');
+          if (pathSplit.length >= 2) {
+            api = pathSplit[1];
+          }
+        }
+        var redirectTo =
+          window.location.protocol +
+          '//' +
+          window.location.hostname +
+          '/' +
+          api +
+          '/' +
+          reference +
+          '.html';
+        window.open(redirectTo);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="banner-icon">
+          <img src="../DevBanner_icon.png" />
+        </div>
+        <div class="banner-text">
+          <h1>BCG Developer Documentation</h1>
+          <p>
+            Browse the latest developer documentation including API reference,
+            articles, and sample code.
+          </p>
+        </div>
+        <div class="banner-btn"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <a href="/index.html">Home</a>
+      <a id="descriptionLink" href="">Description</a>
+      <a
+        id="codeLink"
+        href="javascript:;"
+        data-ref="code"
+        onClick="sideNavClick(this);return false;"
+        >Code</a
+      >
+      <a id="dashboardLink" href="">Performance</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="scenario-1-user-wishes-to-find-a-person-in-the-employee-list">Scenario 1: User wishes to find a person in the employee list</h2>
+
+<p><strong>Test case 1: Find By First Name</strong></p>
 
 <summary>Request</summary>
 <pre><code>
@@ -25,7 +125,7 @@ layout: default
     totalCount
   }
 }
-</code></pre>  
+</code></pre>
 
 <summary>Response</summary>
 <pre><code>
@@ -50,9 +150,9 @@ layout: default
         }
     }
 }
-</code></pre>  
+</code></pre>
 
-**Test case 2: Find By Job Function Name**  
+<p><strong>Test case 2: Find By Job Function Name</strong></p>
 
 <details>
 <summary>Request</summary>
@@ -76,11 +176,11 @@ layout: default
   }
 }
 </code></pre>
-</details>  
+</details>
 
-## Scenario 2: User wishes to search for a person in employee list by providing certain filter values  
+<h2 id="scenario-2-user-wishes-to-search-for-a-person-in-employee-list-by-providing-certain-filter-values">Scenario 2: User wishes to search for a person in employee list by providing certain filter values</h2>
 
-**Test case 1: Multiple search filters used with find and filter Type:OR/NOT**  
+<p><strong>Test case 1: Multiple search filters used with find and filter Type:OR/NOT</strong></p>
 
 <details>
 <summary>Request</summary>
@@ -104,8 +204,8 @@ layout: default
   }
 }
 </code></pre>
-</details> 
-<br/>
+</details>
+<p><br /></p>
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -228,10 +328,10 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/>
-**Test case 2: Filter by First name and Last name using filterType : AND**  
-  
+</details>
+<p><br />
+<strong>Test case 2: Filter by First name and Last name using filterType : AND</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -254,13 +354,13 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/> 
+</details>
+<p><br /></p>
 
-## Scenario 3: "DataSet" : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL  
-  
-**Test case 1: Search query to filter on First name on dataset BCG_REGULAR**  
-  
+<h2 id="scenario-3-dataset--user-wants-to-search-for-specific-group-of-people-in-employee-list-and-available-datasets-are-bcgit--bcgalumini--bcgregular--bcgvendors--bcgall">Scenario 3: “DataSet” : User wants to search for specific group of people in employee list and available datasets are BCG_IT , BCG_ALUMINI , BCG_REGULAR , BCG_VENDORS , BCG_ALL</h2>
+
+<p><strong>Test case 1: Search query to filter on First name on dataset BCG_REGULAR</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -283,8 +383,8 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -300,9 +400,9 @@ layout: default
                     "lastName": "Khokhar",
                     "homeOfficeId": "IKA",
                     "status": "Regular-Active",
-                    "globalTitle": "Omnia - Lead Data & Analytics",
+                    "globalTitle": "Omnia - Lead Data &amp; Analytics",
                     "jobFunction": "Specialty Level 2",
-                    "title": "BCG Omnia - Data & Analytics Lead"
+                    "title": "BCG Omnia - Data &amp; Analytics Lead"
                 },
                 {
                     "id": "...",
@@ -361,11 +461,11 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/> 
+</details>
+<p><br /></p>
 
-**Test case 2: Search by firstname and dataset = BCG_IT**  
-  
+<p><strong>Test case 2: Search by firstname and dataset = BCG_IT</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -388,13 +488,13 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
-## Scenario 4: "Pagination" :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search  
+<h2 id="scenario-4-pagination-user-wants-to-see-the-number-of-records-to-display-in-viewportthis-result-set-should-be-mutablepagination-is-achievable-through-limit-and-offset-parameters-in-people-search">Scenario 4: “Pagination” :User wants to see the number of records to display in viewport.This result set should be mutable.Pagination is achievable through limit and offset parameters in People Search</h2>
 
-**Test case 1: Filter By First name using dataset and limit=10**  
-  
+<p><strong>Test case 1: Filter By First name using dataset and limit=10</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -417,8 +517,8 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -434,9 +534,9 @@ layout: default
                     "lastName": "Khokhar",
                     "homeOfficeId": "IKA",
                     "status": "Regular-Active",
-                    "globalTitle": "Omnia - Lead Data & Analytics",
+                    "globalTitle": "Omnia - Lead Data &amp; Analytics",
                     "jobFunction": "Specialty Level 2",
-                    "title": "BCG Omnia - Data & Analytics Lead"
+                    "title": "BCG Omnia - Data &amp; Analytics Lead"
                 },
                 {
                     "id": "...",
@@ -515,13 +615,13 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/>  
+</details>
+<p><br /></p>
 
-## Scenario 5:  "Sorting" :User wants to get the response in a sequential order  
-  
-**Test case 1: Filter by First name and Sort By Last name - default Ascending sort**  
-  
+<h2 id="scenario-5--sorting-user-wants-to-get-the-response-in-a-sequential-order">Scenario 5:  “Sorting” :User wants to get the response in a sequential order</h2>
+
+<p><strong>Test case 1: Filter by First name and Sort By Last name - default Ascending sort</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -544,8 +644,8 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/> 
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -584,11 +684,11 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
-**Test case 2: Sort By First name in ascending order**   
-   
+<p><strong>Test case 2: Sort By First name in ascending order</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -611,10 +711,10 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>   
+</details>
+<p><br /></p>
 
-**Test case 3: Multiple Sort By First name and Last name in ascending order**  
+<p><strong>Test case 3: Multiple Sort By First name and Last name in ascending order</strong></p>
 
 <details>
 <summary>Request</summary>
@@ -638,8 +738,8 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -686,13 +786,13 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
-## Scenario 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.  
-   
-**Test case 1: First name and Last name both have spelling mistakes**   
-  
+<h2 id="scenario-6-fuzzy-search-a-fuzzy-matching-program-operates-like-a-spell-checker-and-spelling-error-corrector">Scenario 6: Fuzzy Search A fuzzy matching program operates like a spell checker and spelling-error corrector.</h2>
+
+<p><strong>Test case 1: First name and Last name both have spelling mistakes</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -714,8 +814,8 @@ layout: default
     }
  }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -741,13 +841,13 @@ layout: default
     }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
-## Scenario 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.  
+<h2 id="scenario-7-type-ahead-search----people-api-also-supports-auto-complete-feature--sort-by-can-be-used-as-well-on-specific-fields">Scenario 7: Type-Ahead Search -  People API also supports Auto-complete feature.  Sort By can be used as well on specific fields.</h2>
 
-**Test case 1: Type Ahead Search with Location Filter and DataSet**  
-   
+<p><strong>Test case 1: Type Ahead Search with Location Filter and DataSet</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -769,8 +869,8 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -808,13 +908,13 @@ layout: default
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
-## Scenario 8: Search with Single Character  
-  
-**Test case 1: Filter by Last Name with single char**  
-  
+<h2 id="scenario-8-search-with-single-character">Scenario 8: Search with Single Character</h2>
+
+<p><strong>Test case 1: Filter by Last Name with single char</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -829,8 +929,8 @@ query {
   }
 }
 </code></pre>
-</details>  
-<br/> 
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -890,13 +990,13 @@ query {
     }
 }
 </code></pre>
-</details>  
-<br/> 
+</details>
+<p><br /></p>
 
-## Scenario 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.    
-  
-**Test case 1 : Filter by First Name and Group By job function**  
-  
+<h2 id="scenario-9-aggregation---resultfilter---used-for-aggregation--grouping-the-fields-specified-in-search-querymultiple-or-single-filter-can-be-used-in-single-query">Scenario 9 :Aggregation - resultFilter - Used for Aggregation / Grouping the fields specified in search query.Multiple or single filter can be used in single query.</h2>
+
+<p><strong>Test case 1 : Filter by First Name and Group By job function</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -919,8 +1019,8 @@ query {
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 
 <details>
 <summary>Response</summary>
@@ -961,9 +1061,9 @@ query {
                     "lastName": "Khokhar",
                     "homeOfficeId": "IKA",
                     "status": "Regular-Active",
-                    "globalTitle": "Omnia - Lead Data & Analytics",
+                    "globalTitle": "Omnia - Lead Data &amp; Analytics",
                     "jobFunction": "Specialty Level 2",
-                    "title": "BCG Omnia - Data & Analytics Lead"
+                    "title": "BCG Omnia - Data &amp; Analytics Lead"
                 },
                 {
                     "id": "...",
@@ -995,10 +1095,10 @@ query {
     }
 }
 </code></pre>
-</details>  
-<br/> 
-**Test case 2: Aggregation along with Nested filter fields**  
-   
+</details>
+<p><br /> 
+<strong>Test case 2: Aggregation along with Nested filter fields</strong></p>
+
 <details>
 <summary>Request</summary>
 <pre><code>
@@ -1023,8 +1123,8 @@ query {
   }
 }
 </code></pre>
-</details>  
-<br/>
+</details>
+<p><br /></p>
 <details>
 <summary>Response</summary>
 <pre><code>
@@ -1036,7 +1136,7 @@ query {
                     "id": "8872",
                     "name": "Aham, Tom",
                     "lastName": "Aham",
-                    "title": "Global IT Director - Technology Operations Meetings & Offices",
+                    "title": "Global IT Director - Technology Operations Meetings &amp; Offices",
                     "status": "Regular-Active",
                     "hostOfficeId": "GSB"
                 },
@@ -1069,5 +1169,9 @@ query {
     }
 }
 </code></pre>
-</details>  
-  
+</details>
+
+
+    </main>
+  </body>
+</html>
