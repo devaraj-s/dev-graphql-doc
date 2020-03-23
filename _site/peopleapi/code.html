@@ -65,7 +65,7 @@
           '/' +
           reference +
           '.html';
-        window.open(redirectTo);
+        (document.location.href = redirectTo), true;
       }
     </script>
   </head>
@@ -94,7 +94,7 @@
         id="codeLink"
         href="javascript:;"
         data-ref="code"
-        onClick="sideNavClick(this);return false;"
+        onClick="sideNavClick(this)"
         >Code</a
       >
       <a id="dashboardLink" href="">Performance</a>
